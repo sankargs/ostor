@@ -32,13 +32,13 @@ hadoop jar ostor.jar com.ostor.dedup.hadoop.DedupStorHadoopCreateObjectsMapReduc
 Amazon Hadoop -
 -------------
 
-jar - s3://ppraveenhadoop/hadoopdedupdir/jars/ostor.jar
+jar - s3://<bucket>/hadoopdedupdir/jars/ostor.jar
 
 Create segments map reduce job -
-options - com.ostor.dedup.hadoop.DedupStorHadoopCreateSegmentsMapReduce s3://ppraveenhadoop/hadoopdedupdir/input/ s3://ppraveenhadoop/hadoopdedupdir/dedup3/ -libjars s3://ppraveenhadoop/hadoopdedupdir/jars/*.jar -files s3://ppraveenhadoop/hadoopdedupdir/files/dedup.log4j
+options - com.ostor.dedup.hadoop.DedupStorHadoopCreateSegmentsMapReduce s3://<bucket>/hadoopdedupdir/input/ s3://<bucket>/hadoopdedupdir/dedup3/ -libjars s3://<bucket>/hadoopdedupdir/jars/*.jar -files s3://<bucket>/hadoopdedupdir/files/dedup.log4j
 
 Create objects map reduce job -
-options - com.ostor.dedup.hadoop.DedupStorHadoopCreateObjectsMapReduce s3://ppraveenhadoop/hadoopdedupdir/dedup3 -libjars s3://ppraveenhadoop/hadoopdedupdir/jars/*.jar -files s3://ppraveenhadoop/hadoopdedupdir/files/dedup.log4j
+options - com.ostor.dedup.hadoop.DedupStorHadoopCreateObjectsMapReduce s3://<bucket>/hadoopdedupdir/dedup3 -libjars s3://<bucket>/hadoopdedupdir/jars/*.jar -files s3://<bucket>/hadoopdedupdir/files/dedup.log4j
 
-logs - s3://ppraveenhadoop/hadoopdedupdir/logs/dedup3/
+logs - s3://<bucket>/hadoopdedupdir/logs/dedup3/
 
