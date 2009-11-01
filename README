@@ -1,0 +1,44 @@
+This is a readme.
+
+To compile - "make install"
+
+Pre-requisites
+--------------
+
+From the directory launching the below packages, have a file "ostor.log4j" for the logger settings.
+
+Command line -
+------------ 
+
+java -cp *:*:jars/* com.ostor.dedup.core.DedupStorCmd <inputDir> <outputDir>
+
+
+CLI -
+---
+
+java -cp *:*:jars/* com.ostor.dedup.core.DedupStorCli <dstorDir>
+
+----
+
+Hadoop -
+------
+
+hadoop jar ostor.jar com.ostor.dedup.hadoop.DedupStorHadoopCreateSegmentsMapReduce hadoopinput hadoopoutput/ -libjars jars/*.jar -files dedup.log4j
+
+hadoop jar ostor.jar com.ostor.dedup.hadoop.DedupStorHadoopCreateObjectsMapReduce hadoopoutput -libjars jars/*.jar -files dedup.log4j
+
+----
+
+Amazon Hadoop -
+-------------
+
+jar - s3://ppraveenhadoop/hadoopdedupdir/jars/ostor.jar
+
+Create segments map reduce job -
+options - com.ostor.dedup.hadoop.DedupStorHadoopCreateSegmentsMapReduce s3://ppraveenhadoop/hadoopdedupdir/input/ s3://ppraveenhadoop/hadoopdedupdir/dedup3/ -libjars s3://ppraveenhadoop/hadoopdedupdir/jars/*.jar -files s3://ppraveenhadoop/hadoopdedupdir/files/dedup.log4j
+
+Create objects map reduce job -
+options - com.ostor.dedup.hadoop.DedupStorHadoopCreateObjectsMapReduce s3://ppraveenhadoop/hadoopdedupdir/dedup3 -libjars s3://ppraveenhadoop/hadoopdedupdir/jars/*.jar -files s3://ppraveenhadoop/hadoopdedupdir/files/dedup.log4j
+
+logs - s3://ppraveenhadoop/hadoopdedupdir/logs/dedup3/
+
