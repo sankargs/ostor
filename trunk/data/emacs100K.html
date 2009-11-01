@@ -1,0 +1,2000 @@
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>GNU Emacs Manual</title>
+
+<meta name="description" content="GNU Emacs Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="top" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This is the Sixteenth edition of the `GNU Emacs Manual',
+
+updated for Emacs version 22.1.
+
+Copyright (C) 1985, 1986, 1987, 1993, 1994, 1995, 1996, 1997,
+1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software
+Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being "The GNU Manifesto,"
+     "Distribution" and "GNU GENERAL PUBLIC LICENSE," with the
+     Front-Cover texts being "A GNU Manual," and with the Back-Cover
+     Texts as in (a) below.  A copy of the license is included in the
+     section entitled "GNU Free Documentation License."
+
+     (a) The FSF's Back-Cover Text is: "You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development."
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head><body>
+<h1 class="settitle">GNU Emacs Manual</h1>
+<div class="node">
+<p></p><hr>
+<a name="Top"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Distrib">Distrib</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#dir">(dir)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
+
+</div>
+
+<h2 class="unnumbered">The Emacs Editor</h2>
+
+<p>Emacs is the extensible, customizable, self-documenting real-time
+display editor.  This Info file describes how to edit with Emacs and
+some of how to customize it; it corresponds to GNU Emacs version
+22.1.
+
+   </p><p>For information on extending Emacs, see <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Top">Emacs Lisp</a>.
+
+</p><ul class="menu">
+<li><a accesskey="1" href="#Distrib">Distrib</a>: 	        How to get the latest Emacs distribution. 
+</li><li><a accesskey="2" href="#Copying">Copying</a>: 	        The GNU General Public License gives you permission
+			  to redistribute GNU Emacs on certain terms;
+			  it also explains that there is no warranty. 
+</li><li><a accesskey="3" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
+</li><li><a accesskey="4" href="#Intro">Intro</a>: 	        An introduction to Emacs concepts. 
+</li><li><a accesskey="5" href="#Glossary">Glossary</a>: 	        The glossary. 
+</li><li><a accesskey="6" href="#Antinews">Antinews</a>: 	        Information about Emacs version 21. 
+</li><li><a accesskey="7" href="#Mac-OS">Mac OS</a>:               Using Emacs in the Mac. 
+</li><li><a accesskey="8" href="#Microsoft-Windows">Microsoft Windows</a>:    Using Emacs on Microsoft Windows and MS-DOS. 
+</li><li><a accesskey="9" href="#Manifesto">Manifesto</a>: 	        What's GNU?  Gnu's Not Unix! 
+</li><li><a href="#Acknowledgments">Acknowledgments</a>:      Major contributors to GNU Emacs.
+
+</li></ul>
+<p>Indexes (each index contains a large menu)
+</p>
+<ul class="menu">
+<li><a href="#Key-Index">Key Index</a>: 	        An item for each standard Emacs key sequence. 
+</li><li><a href="#Option-Index">Option Index</a>:         An item for every command-line option. 
+</li><li><a href="#Command-Index">Command Index</a>:        An item for each command name. 
+</li><li><a href="#Variable-Index">Variable Index</a>:       An item for each documented variable. 
+</li><li><a href="#Concept-Index">Concept Index</a>:        An item for each concept.
+
+</li></ul>
+<p>Important General Concepts
+</p>
+<ul class="menu">
+<li><a href="#Screen">Screen</a>: 	        How to interpret what you see on the screen. 
+</li><li><a href="#User-Input">User Input</a>: 	        Kinds of input events (characters, buttons,
+                          function keys). 
+</li><li><a href="#Keys">Keys</a>: 	        Key sequences: what you type to request one
+                          editing action. 
+</li><li><a href="#Commands">Commands</a>: 	        Named functions run by key sequences to do editing. 
+</li><li><a href="#Text-Characters">Text Characters</a>:      Character set for text (the contents of buffers
+			  and strings). 
+</li><li><a href="#Entering-Emacs">Entering Emacs</a>:       Starting Emacs from the shell. 
+</li><li><a href="#Exiting">Exiting</a>: 	        Stopping or killing Emacs. 
+</li><li><a href="#Emacs-Invocation">Emacs Invocation</a>:     Hairy startup options.
+
+</li></ul>
+<p>Fundamental Editing Commands
+</p>
+<ul class="menu">
+<li><a href="#Basic">Basic</a>: 	        The most basic editing commands. 
+</li><li><a href="#Minibuffer">Minibuffer</a>: 	        Entering arguments that are prompted for. 
+</li><li><a href="#M_002dx">M-x</a>: 		        Invoking commands by their names. 
+</li><li><a href="#Help">Help</a>: 	        Commands for asking Emacs about its commands.
+
+</li></ul>
+<p>Important Text-Changing Commands
+</p>
+<ul class="menu">
+<li><a href="#Mark">Mark</a>: 	        The mark: how to delimit a ``region'' of text. 
+</li><li><a href="#Killing">Killing</a>: 	        Killing (cutting) text. 
+</li><li><a href="#Yanking">Yanking</a>: 	        Recovering killed text.  Moving text. (Pasting.) 
+</li><li><a href="#Accumulating-Text">Accumulating Text</a>:    Other ways of copying text. 
+</li><li><a href="#Rectangles">Rectangles</a>: 	        Operating on the text inside a rectangle on the screen. 
+</li><li><a href="#Registers">Registers</a>: 	        Saving a text string or a location in the buffer. 
+</li><li><a href="#Display">Display</a>: 	        Controlling what text is displayed. 
+</li><li><a href="#Search">Search</a>: 	        Finding or replacing occurrences of a string. 
+</li><li><a href="#Fixit">Fixit</a>: 	        Commands especially useful for fixing typos. 
+</li><li><a href="#Keyboard-Macros">Keyboard Macros</a>: 	A keyboard macro records a sequence of
+			  keystrokes to be replayed with a single command.
+
+</li></ul>
+<p>Major Structures of Emacs
+</p>
+<ul class="menu">
+<li><a href="#Files">Files</a>: 	        All about handling files. 
+</li><li><a href="#Buffers">Buffers</a>: 	        Multiple buffers; editing several files at once. 
+</li><li><a href="#Windows">Windows</a>: 	        Viewing two pieces of text at once. 
+</li><li><a href="#Frames">Frames</a>: 	        Running the same Emacs session in multiple X windows. 
+</li><li><a href="#International">International</a>:        Using non-<acronym>ASCII</acronym> character sets (the MULE features).
+
+</li></ul>
+<p>Advanced Features
+</p>
+<ul class="menu">
+<li><a href="#Major-Modes">Major Modes</a>: 	        Text mode vs. Lisp mode vs. C mode ... 
+</li><li><a href="#Indentation">Indentation</a>: 	        Editing the white space at the beginnings of lines. 
+</li><li><a href="#Text">Text</a>: 	        Commands and modes for editing English. 
+</li><li><a href="#Programs">Programs</a>: 	        Commands and modes for editing programs. 
+</li><li><a href="#Building">Building</a>: 	        Compiling, running and debugging programs. 
+</li><li><a href="#Maintaining">Maintaining</a>:          Features for maintaining large programs. 
+</li><li><a href="#Abbrevs">Abbrevs</a>: 	        How to define text abbreviations to reduce
+			  the number of characters you must type.
+
+</li><li><a href="#Picture-Mode">Picture Mode</a>:         Editing pictures made up of characters using
+                          the quarter-plane screen model. 
+</li><li><a href="#Sending-Mail">Sending Mail</a>:         Sending mail in Emacs. 
+</li><li><a href="#Rmail">Rmail</a>: 	        Reading mail in Emacs. 
+</li><li><a href="#Dired">Dired</a>: 	        You can ``edit'' a directory to manage files in it. 
+</li><li><a href="#Calendar_002fDiary">Calendar/Diary</a>:       The calendar and diary facilities. 
+</li><li><a href="#Gnus">Gnus</a>: 	        How to read netnews with Emacs. 
+</li><li><a href="#Shell">Shell</a>: 	        Executing shell commands from Emacs. 
+</li><li><a href="#Emacs-Server">Emacs Server</a>:         Using Emacs as an editing server for <code>mail</code>, etc. 
+</li><li><a href="#Printing">Printing</a>: 	        Printing hardcopies of buffers or regions. 
+</li><li><a href="#Sorting">Sorting</a>: 	        Sorting lines, paragraphs or pages within Emacs. 
+</li><li><a href="#Narrowing">Narrowing</a>: 	        Restricting display and editing to a portion
+		          of the buffer. 
+</li><li><a href="#Two_002dColumn">Two-Column</a>: 	        Splitting apart columns to edit them
+		          in side-by-side windows. 
+</li><li><a href="#Editing-Binary-Files">Editing Binary Files</a>: Using Hexl mode to edit binary files. 
+</li><li><a href="#Saving-Emacs-Sessions">Saving Emacs Sessions</a>:  Saving Emacs state from one session to the next. 
+</li><li><a href="#Recursive-Edit">Recursive Edit</a>:       A command can allow you to do editing
+			  "within the command".  This is called a
+			  "recursive editing level". 
+</li><li><a href="#Emulation">Emulation</a>: 	        Emulating some other editors with Emacs. 
+</li><li><a href="#Hyperlinking">Hyperlinking</a>:         Following links in buffers. 
+</li><li><a href="#Dissociated-Press">Dissociated Press</a>:    Dissociating text for fun. 
+</li><li><a href="#Amusements">Amusements</a>: 	        Various games and hacks. 
+</li><li><a href="#Customization">Customization</a>:        Modifying the behavior of Emacs. 
+</li><li><a href="#X-Resources">X Resources</a>:          X resources for customizing Emacs.
+
+</li></ul>
+<p>Recovery from Problems
+</p>
+<ul class="menu">
+<li><a href="#Quitting">Quitting</a>: 	        Quitting and aborting. 
+</li><li><a href="#Lossage">Lossage</a>: 	        What to do if Emacs is hung or malfunctioning. 
+</li><li><a href="#Bugs">Bugs</a>: 	        How and when to report a bug. 
+</li><li><a href="#Contributing">Contributing</a>:         How to contribute improvements to Emacs. 
+</li><li><a href="#Service">Service</a>: 	        How to get help for your own Emacs needs.
+
+<!-- Do NOT modify the following 3 lines!  They must have this form to -->
+<!-- be correctly identified by `texinfo-multiple-files-update'.  In -->
+<!-- particular, the detailed menu header line MUST be identical to the -->
+<!-- value of `texinfo-master-menu-header'.  See texnfo-upd.el. -->
+</li></ul>
+<p>--- The Detailed Node Listing ---
+ ---------------------------------
+
+</p><p>Here are some other nodes which are really inferiors of the ones
+already listed, mentioned here so you can get to them in one step:
+
+</p><p>The Organization of the Screen
+
+</p>
+<ul class="menu">
+<li><a href="#Point">Point</a>: 	        The place in the text where editing commands operate. 
+</li><li><a href="#Echo-Area">Echo Area</a>:            Short messages appear at the bottom of the screen. 
+</li><li><a href="#Mode-Line">Mode Line</a>: 	        Interpreting the mode line. 
+</li><li><a href="#Menu-Bar">Menu Bar</a>:             How to use the menu bar.
+
+</li></ul>
+<p>Basic Editing Commands
+
+</p>
+<ul class="menu">
+<li><a href="#Inserting-Text">Inserting Text</a>:       Inserting text by simply typing it. 
+</li><li><a href="#Moving-Point">Moving Point</a>:         How to move the cursor to the place where you want to
+			  change something. 
+</li><li><a href="#Erasing">Erasing</a>: 	        Deleting and killing text. 
+</li><li><a href="#Basic-Undo">Basic Undo</a>: 	        Undoing recent changes in the text. 
+</li><li><a href="#Basic-Files">Basic Files</a>:          Visiting, creating, and saving files. 
+</li><li><a href="#Basic-Help">Basic Help</a>:           Asking what a character does. 
+</li><li><a href="#Blank-Lines">Blank Lines</a>: 	        Commands to make or delete blank lines. 
+</li><li><a href="#Continuation-Lines">Continuation Lines</a>:   Lines too wide for the screen. 
+</li><li><a href="#Position-Info">Position Info</a>:        What page, line, row, or column is point on? 
+</li><li><a href="#Arguments">Arguments</a>: 	        Numeric arguments for repeating a command. 
+</li><li><a href="#Repeating">Repeating</a>:            A short-cut for repeating the previous command.
+
+</li></ul>
+<p>The Minibuffer
+
+</p>
+<ul class="menu">
+<li><a href="#Minibuffer-File">Minibuffer File</a>:      Entering file names with the minibuffer. 
+</li><li><a href="#Minibuffer-Edit">Minibuffer Edit</a>:      How to edit in the minibuffer. 
+</li><li><a href="#Completion">Completion</a>: 		An abbreviation facility for minibuffer input. 
+</li><li><a href="#Minibuffer-History">Minibuffer History</a>: 	Reusing recent minibuffer arguments. 
+</li><li><a href="#Repetition">Repetition</a>: 		Re-executing commands that used the minibuffer.
+
+</li></ul>
+<p>Completion
+
+</p>
+<ul class="menu">
+<li><a href="#Completion-Example">Example</a>:     Examples of using completion. 
+</li><li><a href="#Completion-Commands">Commands</a>:   A list of completion commands. 
+</li><li><a href="#Strict-Completion">Strict Completion</a>:              Different types of completion. 
+</li><li><a href="#Completion-Options">Options</a>:     Options for completion.
+
+</li></ul>
+<p>Help
+
+</p>
+<ul class="menu">
+<li><a href="#Help-Summary">Help Summary</a>: 	Brief list of all Help commands. 
+</li><li><a href="#Key-Help">Key Help</a>: 		Asking what a key does in Emacs. 
+</li><li><a href="#Name-Help">Name Help</a>: 		Asking about a command, variable or function name. 
+</li><li><a href="#Apropos">Apropos</a>: 		Asking what pertains to a given topic. 
+</li><li><a href="#Help-Mode">Help Mode</a>:            Special features of Help mode and Help buffers. 
+</li><li><a href="#Library-Keywords">Library Keywords</a>: 	Finding Lisp libraries by keywords (topics). 
+</li><li><a href="#Language-Help">Language Help</a>:        Help relating to international language support. 
+</li><li><a href="#Misc-Help">Misc Help</a>: 		Other help commands. 
+</li><li><a href="#Help-Files">Help Files</a>:           Commands to display pre-written help files. 
+</li><li><a href="#Help-Echo">Help Echo</a>:            Help on active text and tooltips (`balloon help')
+
+</li></ul>
+<p>The Mark and the Region
+
+</p>
+<ul class="menu">
+<li><a href="#Setting-Mark">Setting Mark</a>: 	Commands to set the mark. 
+</li><li><a href="#Transient-Mark">Transient Mark</a>: 	How to make Emacs highlight the region--
+			  when there is one. 
+</li><li><a href="#Momentary-Mark">Momentary Mark</a>:       Enabling Transient Mark mode momentarily. 
+</li><li><a href="#Using-Region">Using Region</a>: 	Summary of ways to operate on contents of the region. 
+</li><li><a href="#Marking-Objects">Marking Objects</a>: 	Commands to put region around textual units. 
+</li><li><a href="#Mark-Ring">Mark Ring</a>: 		Previous mark positions saved so you can go back there. 
+</li><li><a href="#Global-Mark-Ring">Global Mark Ring</a>: 	Previous mark positions in various buffers.
+
+</li></ul>
+<p>Killing and Moving Text
+
+</p>
+<ul class="menu">
+<li><a href="#Deletion">Deletion</a>: 		Commands for deleting small amounts of text and
+			  blank areas. 
+</li><li><a href="#Killing-by-Lines">Killing by Lines</a>: 	How to kill entire lines of text at one time. 
+</li><li><a href="#Other-Kill-Commands">Other Kill Commands</a>:  Commands to kill large regions of text and
+			  syntactic units such as words and sentences. 
+</li><li><a href="#CUA-Bindings">CUA Bindings</a>:         Using <kbd>C-x</kbd>, <kbd>C-c</kbd>, <kbd>C-v</kbd> for copy
+                          and paste, with enhanced rectangle support.
+
+</li></ul>
+<p>Yanking
+
+</p>
+<ul class="menu">
+<li><a href="#Kill-Ring">Kill Ring</a>: 		Where killed text is stored.  Basic yanking. 
+</li><li><a href="#Appending-Kills">Appending Kills</a>: 	Several kills in a row all yank together. 
+</li><li><a href="#Earlier-Kills">Earlier Kills</a>: 	Yanking something killed some time ago.
+
+</li></ul>
+<p>Registers
+
+</p>
+<ul class="menu">
+<li><a href="#RegPos">RegPos</a>:       	Saving positions in registers. 
+</li><li><a href="#RegText">RegText</a>:      	Saving text in registers. 
+</li><li><a href="#RegRect">RegRect</a>:      	Saving rectangles in registers. 
+</li><li><a href="#RegConfig">RegConfig</a>:            Saving window configurations in registers. 
+</li><li><a href="#RegNumbers">RegNumbers</a>:           Numbers in registers. 
+</li><li><a href="#RegFiles">RegFiles</a>:     	File names in registers. 
+</li><li><a href="#Bookmarks">Bookmarks</a>:            Bookmarks are like registers, but persistent.
+
+</li></ul>
+<p>Controlling the Display
+
+</p>
+<ul class="menu">
+<li><a href="#Scrolling">Scrolling</a>: 	           Moving text up and down in a window. 
+</li><li><a href="#Auto-Scrolling">Auto Scrolling</a>:          Redisplay scrolls text automatically when needed. 
+</li><li><a href="#Horizontal-Scrolling">Horizontal Scrolling</a>:    Moving text left and right in a window. 
+</li><li><a href="#Follow-Mode">Follow Mode</a>:             Follow mode lets two windows scroll as one. 
+</li><li><a href="#Faces">Faces</a>: 	           How to change the display style using faces. 
+</li><li><a href="#Standard-Faces">Standard Faces</a>:          Emacs' predefined faces. 
+</li><li><a href="#Font-Lock">Font Lock</a>:               Minor mode for syntactic highlighting using faces. 
+</li><li><a href="#Highlight-Interactively">Highlight Interactively</a>:  Tell Emacs what text to highlight. 
+</li><li><a href="#Fringes">Fringes</a>:                 Enabling or disabling window fringes. 
+</li><li><a href="#Displaying-Boundaries">Displaying Boundaries</a>:   Displaying top and bottom of the buffer. 
+</li><li><a href="#Useless-Whitespace">Useless Whitespace</a>:      Showing possibly-spurious trailing whitespace. 
+</li><li><a href="#Selective-Display">Selective Display</a>:       Hiding lines with lots of indentation. 
+</li><li><a href="#Optional-Mode-Line">Optional Mode Line</a>:      Optional mode line display features. 
+</li><li><a href="#Text-Display">Text Display</a>:            How text characters are normally displayed. 
+</li><li><a href="#Cursor-Display">Cursor Display</a>:          Features for displaying the cursor. 
+</li><li><a href="#Line-Truncation">Line Truncation</a>:         Truncating lines to fit the screen width instead
+                             of continuing them to multiple screen lines. 
+</li><li><a href="#Display-Custom">Display Custom</a>:          Information on variables for customizing display.
+
+</li></ul>
+<p>Searching and Replacement
+
+</p>
+<ul class="menu">
+<li><a href="#Incremental-Search">Incremental Search</a>: 	   Search happens as you type the string. 
+</li><li><a href="#Nonincremental-Search">Nonincremental Search</a>:   Specify entire string and then search. 
+</li><li><a href="#Word-Search">Word Search</a>: 		   Search for sequence of words. 
+</li><li><a href="#Regexp-Search">Regexp Search</a>: 	   Search for match for a regexp. 
+</li><li><a href="#Regexps">Regexps</a>: 		   Syntax of regular expressions. 
+</li><li><a href="#Regexp-Backslash">Regexp Backslash</a>:        Regular expression constructs starting with `\'. 
+</li><li><a href="#Regexp-Example">Regexp Example</a>:          A complex regular expression explained. 
+</li><li><a href="#Search-Case">Search Case</a>: 		   To ignore case while searching, or not. 
+</li><li><a href="#Replace">Replace</a>: 		   Search, and replace some or all matches. 
+</li><li><a href="#Other-Repeating-Search">Other Repeating Search</a>:  Operating on all matches for some regexp.
+
+</li></ul>
+<p>Incremental Search
+
+</p>
+<ul class="menu">
+<li><a href="#Basic-Isearch">Basic Isearch</a>:        Basic incremental search commands. 
+</li><li><a href="#Repeat-Isearch">Repeat Isearch</a>:       Searching for the same string again. 
+</li><li><a href="#Error-in-Isearch">Error in Isearch</a>:     When your string is not found. 
+</li><li><a href="#Special-Isearch">Special Isearch</a>:      Special input in incremental search. 
+</li><li><a href="#Non_002dASCII-Isearch">Non-ASCII Isearch</a>:    How to search for non-ASCII characters. 
+</li><li><a href="#Isearch-Yank">Isearch Yank</a>:         Commands that grab text into the search string
+                          or else edit the search string. 
+</li><li><a href="#Highlight-Isearch">Highlight Isearch</a>:    Isearch highlights the other possible matches. 
+</li><li><a href="#Isearch-Scroll">Isearch Scroll</a>:       Scrolling during an incremental search. 
+</li><li><a href="#Slow-Isearch">Slow Isearch</a>:         Incremental search features for slow terminals.
+
+</li></ul>
+<p>Replacement Commands
+
+</p>
+<ul class="menu">
+<li><a href="#Unconditional-Replace">Unconditional Replace</a>:   Replacing all matches for a string. 
+</li><li><a href="#Regexp-Replace">Regexp Replace</a>: 	   Replacing all matches for a regexp. 
+</li><li><a href="#Replacement-and-Case">Replacement and Case</a>:    How replacements preserve case of letters. 
+</li><li><a href="#Query-Replace">Query Replace</a>: 	   How to use querying.
+
+</li></ul>
+<p>Commands for Fixing Typos
+
+</p>
+<ul class="menu">
+<li><a href="#Undo">Undo</a>:                 Full details of Emacs undo commands. 
+</li><li><a href="#Kill-Errors">Kill Errors</a>:          Commands to kill a batch of recently entered text. 
+</li><li><a href="#Transpose">Transpose</a>: 	        Exchanging two characters, words, lines, lists... 
+</li><li><a href="#Fixing-Case">Fixing Case</a>:          Correcting case of last word entered. 
+</li><li><a href="#Spelling">Spelling</a>: 	        Apply spelling checker to a word or a whole buffer.
+
+</li></ul>
+<p>Keyboard Macros
+
+</p>
+<ul class="menu">
+<li><a href="#Basic-Keyboard-Macro">Basic Keyboard Macro</a>:      Defining and running keyboard macros. 
+</li><li><a href="#Keyboard-Macro-Ring">Keyboard Macro Ring</a>:       Where previous keyboard macros are saved. 
+</li><li><a href="#Keyboard-Macro-Counter">Keyboard Macro Counter</a>:    Inserting incrementing numbers in macros. 
+</li><li><a href="#Keyboard-Macro-Query">Keyboard Macro Query</a>:      Making keyboard macros do different things each time. 
+</li><li><a href="#Save-Keyboard-Macro">Save Keyboard Macro</a>:       Giving keyboard macros names; saving them in files. 
+</li><li><a href="#Edit-Keyboard-Macro">Edit Keyboard Macro</a>:       Editing keyboard macros. 
+</li><li><a href="#Keyboard-Macro-Step_002dEdit">Keyboard Macro Step-Edit</a>:  Interactively executing and editing a keyboard
+                                macro.
+
+</li></ul>
+<p>File Handling
+
+</p>
+<ul class="menu">
+<li><a href="#File-Names">File Names</a>:           How to type and edit file-name arguments. 
+</li><li><a href="#Visiting">Visiting</a>:             Visiting a file prepares Emacs to edit the file. 
+</li><li><a href="#Saving">Saving</a>:               Saving makes your changes permanent. 
+</li><li><a href="#Reverting">Reverting</a>:            Reverting cancels all the changes not saved. 
+</li><li><a href="#Autorevert">Autorevert</a>:           Auto Reverting non-file buffers. 
+</li><li><a href="#Auto-Save">Auto Save</a>:            Auto Save periodically protects against loss of data. 
+</li><li><a href="#File-Aliases">File Aliases</a>:         Handling multiple names for one file. 
+</li><li><a href="#Version-Control">Version Control</a>:      Version control systems (RCS, CVS and SCCS). 
+</li><li><a href="#Directories">Directories</a>:          Creating, deleting, and listing file directories. 
+</li><li><a href="#Comparing-Files">Comparing Files</a>:      Finding where two files differ. 
+</li><li><a href="#Diff-Mode">Diff Mode</a>:            Editing diff output. 
+</li><li><a href="#Misc-File-Ops">Misc File Ops</a>:        Other things you can do on files. 
+</li><li><a href="#Compressed-Files">Compressed Files</a>:     Accessing compressed files. 
+</li><li><a href="#File-Archives">File Archives</a>:        Operating on tar, zip, jar etc. archive files. 
+</li><li><a href="#Remote-Files">Remote Files</a>:         Accessing files on other sites. 
+</li><li><a href="#Quoted-File-Names">Quoted File Names</a>:    Quoting special characters in file names. 
+</li><li><a href="#File-Name-Cache">File Name Cache</a>:      Completion against a list of files you often use. 
+</li><li><a href="#File-Conveniences">File Conveniences</a>:    Convenience Features for Finding Files. 
+</li><li><a href="#Filesets">Filesets</a>:             Handling sets of files.
+
+</li></ul>
+<p>Saving Files
+
+</p>
+<ul class="menu">
+<li><a href="#Save-Commands">Save Commands</a>:        Commands for saving files. 
+</li><li><a href="#Backup">Backup</a>:               How Emacs saves the old version of your file. 
+</li><li><a href="#Customize-Save">Customize Save</a>:       Customizing the saving of files. 
+</li><li><a href="#Interlocking">Interlocking</a>:         How Emacs protects against simultaneous editing
+                          of one file by two users. 
+</li><li><a href="#File-Shadowing">File Shadowing</a>:       Copying files to "shadows" automatically. 
+</li><li><a href="#Time-Stamps">Time Stamps</a>:          Emacs can update time stamps on saved files.
+
+</li></ul>
+<p>Backup Files
+
+</p>
+<ul class="menu">
+<li><a href="#Numbered-Backups">One or Many</a>:  Whether to make one backup file or many. 
+</li><li><a href="#Backup-Names">Names</a>: 		How backup files are named. 
+</li><li><a href="#Backup-Deletion">Deletion</a>: 	Emacs deletes excess numbered backups. 
+</li><li><a href="#Backup-Copying">Copying</a>: 	Backups can be made by copying or renaming.
+
+</li></ul>
+<p>Auto-Saving: Protection Against Disasters
+
+</p>
+<ul class="menu">
+<li><a href="#Auto-Save-Files">Files</a>:        The file where auto-saved changes are
+                                  actually made until you save the file. 
+</li><li><a href="#Auto-Save-Control">Control</a>:    Controlling when and how often to auto-save. 
+</li><li><a href="#Recover">Recover</a>: 		        Recovering text from auto-save files.
+
+</li></ul>
+<p>Version Control
+
+</p>
+<ul class="menu">
+<li><a href="#Introduction-to-VC">Introduction to VC</a>:   How version control works in general. 
+</li><li><a href="#VC-Mode-Line">VC Mode Line</a>:         How the mode line shows version control status. 
+</li><li><a href="#Basic-VC-Editing">Basic VC Editing</a>:     How to edit a file under version control. 
+</li><li><a href="#Old-Versions">Old Versions</a>:         Examining and comparing old versions. 
+</li><li><a href="#Secondary-VC-Commands">Secondary VC Commands</a>:  The commands used a little less frequently. 
+</li><li><a href="#Branches">Branches</a>:             Multiple lines of development. 
+</li><li><a href="#Remote-Repositories">Remote Repositories</a>:  Efficient access to remote CVS servers. 
+</li><li><a href="#Snapshots">Snapshots</a>:            Sets of file versions treated as a unit. 
+</li><li><a href="#Miscellaneous-VC">Miscellaneous VC</a>:     Various other commands and features of VC. 
+</li><li><a href="#Customizing-VC">Customizing VC</a>:       Variables that change VC's behavior.
+
+</li></ul>
+<p>Using Multiple Buffers
+
+</p>
+<ul class="menu">
+<li><a href="#Select-Buffer">Select Buffer</a>:        Creating a new buffer or reselecting an old one. 
+</li><li><a href="#List-Buffers">List Buffers</a>:         Getting a list of buffers that exist. 
+</li><li><a href="#Misc-Buffer">Misc Buffer</a>: 	        Renaming; changing read-onliness; copying text. 
+</li><li><a href="#Kill-Buffer">Kill Buffer</a>: 	        Killing buffers you no longer need. 
+</li><li><a href="#Several-Buffers">Several Buffers</a>:      How to go through the list of all buffers
+			  and operate variously on several of them. 
+</li><li><a href="#Indirect-Buffers">Indirect Buffers</a>:     An indirect buffer shares the text of another buffer. 
+</li><li><a href="#Buffer-Convenience">Buffer Convenience</a>:   Convenience and customization features for
+                          buffer handling.
+
+</li></ul>
+<p>Multiple Windows
+
+</p>
+<ul class="menu">
+<li><a href="#Basic-Window">Basic Window</a>:         Introduction to Emacs windows. 
+</li><li><a href="#Split-Window">Split Window</a>:         New windows are made by splitting existing windows. 
+</li><li><a href="#Other-Window">Other Window</a>:         Moving to another window or doing something to it. 
+</li><li><a href="#Pop-Up-Window">Pop Up Window</a>:        Finding a file or buffer in another window. 
+</li><li><a href="#Force-Same-Window">Force Same Window</a>:    Forcing certain buffers to appear in the selected
+                          window rather than in another window. 
+</li><li><a href="#Change-Window">Change Window</a>:        Deleting windows and changing their sizes. 
+</li><li><a href="#Window-Convenience">Window Convenience</a>:   Convenience functions for window handling.
+
+</li></ul>
+<p>Frames and Graphical Displays
+
+</p>
+<ul class="menu">
+<li><a href="#Cut-and-Paste">Cut and Paste</a>:        Mouse commands for cut and paste. 
+</li><li><a href="#Mouse-References">Mouse References</a>:     Using the mouse to select an item from a list. 
+</li><li><a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a>:    Mouse clicks that bring up menus. 
+</li><li><a href="#Mode-Line-Mouse">Mode Line Mouse</a>:      Mouse clicks on the mode line. 
+</li><li><a href="#Creating-Frames">Creating Frames</a>:      Creating additional Emacs frames with various contents. 
+</li><li><a href="#Frame-Commands">Frame Commands</a>:       Iconifying, deleting, and switching frames. 
+</li><li><a href="#Speedbar">Speedbar</a>:             How to make and use a speedbar frame. 
+</li><li><a href="#Multiple-Displays">Multiple Displays</a>:    How one Emacs job can talk to several displays. 
+</li><li><a href="#Special-Buffer-Frames">Special Buffer Frames</a>:   You can make certain buffers have their own frames. 
+</li><li><a href="#Frame-Parameters">Frame Parameters</a>:     Changing the colors and other modes of frames. 
+</li><li><a href="#Scroll-Bars">Scroll Bars</a>: 	        How to enable and disable scroll bars; how to use them. 
+</li><li><a href="#Wheeled-Mice">Wheeled Mice</a>:         Using mouse wheels for scrolling. 
+</li><li><a href="#Drag-and-Drop">Drag and Drop</a>:        Using drag and drop to open files and insert text. 
+</li><li><a href="#Menu-Bars">Menu Bars</a>: 	        Enabling and disabling the menu bar. 
+</li><li><a href="#Tool-Bars">Tool Bars</a>:            Enabling and disabling the tool bar. 
+</li><li><a href="#Dialog-Boxes">Dialog Boxes</a>:         Controlling use of dialog boxes. 
+</li><li><a href="#Tooltips">Tooltips</a>:             Showing "tooltips", AKA "balloon help" for active text. 
+</li><li><a href="#Mouse-Avoidance">Mouse Avoidance</a>:      Moving the mouse pointer out of the way. 
+</li><li><a href="#Non_002dWindow-Terminals">Non-Window Terminals</a>:   Multiple frames on terminals that show only one. 
+</li><li><a href="#Text_002dOnly-Mouse">Text-Only Mouse</a>:      Using the mouse in text-only terminals.
+
+</li></ul>
+<p>International Character Set Support
+
+</p>
+<ul class="menu">
+<li><a href="#International-Chars">International Chars</a>:      Basic concepts of multibyte characters. 
+</li><li><a href="#Enabling-Multibyte">Enabling Multibyte</a>:       Controlling whether to use multibyte characters. 
+</li><li><a href="#Language-Environments">Language Environments</a>:    Setting things up for the language you use. 
+</li><li><a href="#Input-Methods">Input Methods</a>:            Entering text characters not on your keyboard. 
+</li><li><a href="#Select-Input-Method">Select Input Method</a>:      Specifying your choice of input methods. 
+</li><li><a href="#Multibyte-Conversion">Multibyte Conversion</a>:     How single-byte characters convert to multibyte. 
+</li><li><a href="#Coding-Systems">Coding Systems</a>:           Character set conversion when you read and
+                              write files, and so on. 
+</li><li><a href="#Recognize-Coding">Recognize Coding</a>:         How Emacs figures out which conversion to use. 
+</li><li><a href="#Specify-Coding">Specify Coding</a>:           Specifying a file's coding system explicitly. 
+</li><li><a href="#Output-Coding">Output Coding</a>:            Choosing coding systems for output. 
+</li><li><a href="#Text-Coding">Text Coding</a>:              Choosing conversion to use for file text. 
+</li><li><a href="#Communication-Coding">Communication Coding</a>:     Coding systems for interprocess communication. 
+</li><li><a href="#File-Name-Coding">File Name Coding</a>:         Coding systems for file <em>names</em>. 
+</li><li><a href="#Terminal-Coding">Terminal Coding</a>:          Specifying coding systems for converting
+                              terminal input and output. 
+</li><li><a href="#Fontsets">Fontsets</a>:                 Fontsets are collections of fonts
+                              that cover the whole spectrum of characters. 
+</li><li><a href="#Defining-Fontsets">Defining Fontsets</a>:        Defining a new fontset. 
+</li><li><a href="#Undisplayable-Characters">Undisplayable Characters</a>: When characters don't display. 
+</li><li><a href="#Unibyte-Mode">Unibyte Mode</a>:             You can pick one European character set
+                              to use without multibyte characters. 
+</li><li><a href="#Charsets">Charsets</a>:                 How Emacs groups its internal character codes.
+
+</li></ul>
+<p>Major Modes
+
+</p>
+<ul class="menu">
+<li><a href="#Choosing-Modes">Choosing Modes</a>:       How major modes are specified or chosen.
+
+</li></ul>
+<p>Indentation
+
+</p>
+<ul class="menu">
+<li><a href="#Indentation-Commands">Indentation Commands</a>:   Various commands and techniques for indentation. 
+</li><li><a href="#Tab-Stops">Tab Stops</a>: 		  You can set arbitrary "tab stops" and then
+			    indent to the next tab stop when you want to. 
+</li><li><a href="#Just-Spaces">Just Spaces</a>: 		  You can request indentation using just spaces.
+
+</li></ul>
+<p>Commands for Human Languages
+
+</p>
+<ul class="menu">
+<li><a href="#Words">Words</a>: 	        Moving over and killing words. 
+</li><li><a href="#Sentences">Sentences</a>: 	        Moving over and killing sentences. 
+</li><li><a href="#Paragraphs">Paragraphs</a>: 	        Moving over paragraphs. 
+</li><li><a href="#Pages">Pages</a>: 	        Moving over pages. 
+</li><li><a href="#Filling">Filling</a>: 	        Filling or justifying text. 
+</li><li><a href="#Case">Case</a>: 	        Changing the case of text. 
+</li><li><a href="#Text-Mode">Text Mode</a>: 	        The major modes for editing text files. 
+</li><li><a href="#Outline-Mode">Outline Mode</a>:         Editing outlines. 
+</li><li><a href="#TeX-Mode">TeX Mode</a>: 	        Editing input to the formatter TeX. 
+</li><li><a href="#HTML-Mode">HTML Mode</a>:            Editing HTML, SGML, and XML files. 
+</li><li><a href="#Nroff-Mode">Nroff Mode</a>: 	        Editing input to the formatter nroff. 
+</li><li><a href="#Formatted-Text">Formatted Text</a>:       Editing formatted text directly in WYSIWYG fashion. 
+</li><li><a href="#Text-Based-Tables">Text Based Tables</a>:    Editing text-based tables in WYSIWYG fashion.
+
+</li></ul>
+<p>Filling Text
+
+</p>
+<ul class="menu">
+<li><a href="#Auto-Fill">Auto Fill</a>: 	        Auto Fill mode breaks long lines automatically. 
+</li><li><a href="#Refill">Refill</a>:               Keeping paragraphs filled. 
+</li><li><a href="#Fill-Commands">Fill Commands</a>:        Commands to refill paragraphs and center lines. 
+</li><li><a href="#Fill-Prefix">Fill Prefix</a>: 	        Filling paragraphs that are indented
+                          or in a comment, etc. 
+</li><li><a href="#Adaptive-Fill">Adaptive Fill</a>:        How Emacs can determine the fill prefix automatically. 
+</li><li><a href="#Longlines">Longlines</a>:            Editing text with very long lines.
+
+</li></ul>
+<p>Outline Mode
+
+</p>
+<ul class="menu">
+<li><a href="#Outline-Format">Format</a>: 	   What the text of an outline looks like. 
+</li><li><a href="#Outline-Motion">Motion</a>: 	   Special commands for moving through
+                                     outlines. 
+</li><li><a href="#Outline-Visibility">Visibility</a>:   Commands to control what is visible. 
+</li><li><a href="#Outline-Views">Views</a>:             Outlines and multiple views. 
+</li><li><a href="#Foldout">Foldout</a>:                         Folding means zooming in on outlines.
+
+</li></ul>
+<p>TeX Mode
+
+</p>
+<ul class="menu">
+<li><a href="#TeX-Editing">Editing</a>:    Special commands for editing in TeX mode. 
+</li><li><a href="#LaTeX-Editing">LaTeX</a>:    Additional commands for LaTeX input files. 
+</li><li><a href="#TeX-Print">Printing</a>:     Commands for printing part of a file with TeX. 
+</li><li><a href="#TeX-Misc">Misc</a>:          Customization of TeX mode, and related features.
+
+</li></ul>
+<p>Editing Formatted Text
+
+</p>
+<ul class="menu">
+<li><a href="#Requesting-Formatted-Text">Requesting Formatted Text</a>:    Entering and exiting Enriched mode. 
+</li><li><a href="#Hard-and-Soft-Newlines">Hard and Soft Newlines</a>:       There are two different kinds of newlines. 
+</li><li><a href="#Editing-Format-Info">Editing Format Info</a>:          How to edit text properties. 
+</li><li><a href="#Format-Faces">Faces</a>:           Bold, italic, underline, etc. 
+</li><li><a href="#Format-Colors">Color</a>:          Changing the color of text. 
+</li><li><a href="#Format-Indentation">Indent</a>:    Changing the left and right margins. 
+</li><li><a href="#Format-Justification">Justification</a>
+                                Centering, setting text flush with the
+                                  left or right margin, etc. 
+</li><li><a href="#Format-Properties">Other</a>:      The "special" text properties submenu. 
+</li><li><a href="#Forcing-Enriched-Mode">Forcing Enriched Mode</a>:        How to force use of Enriched mode.
+
+</li></ul>
+<p>Editing Text-based Tables
+
+</p>
+<ul class="menu">
+<li><a href="#Table-Definition">Table Definition</a>:     What is a text based table. 
+</li><li><a href="#Table-Creation">Table Creation</a>:       How to create a table. 
+</li><li><a href="#Table-Recognition">Table Recognition</a>:    How to activate and deactivate tables. 
+</li><li><a href="#Cell-Commands">Cell Commands</a>:        Cell-oriented commands in a table. 
+</li><li><a href="#Cell-Justification">Cell Justification</a>:   Justifying cell contents. 
+</li><li><a href="#Row-Commands">Row Commands</a>:         Manipulating rows of table cell. 
+</li><li><a href="#Column-Commands">Column Commands</a>:      Manipulating columns of table cell. 
+</li><li><a href="#Fixed-Width-Mode">Fixed Width Mode</a>:     Fixing cell width. 
+</li><li><a href="#Table-Conversion">Table Conversion</a>:     Converting between plain text and tables. 
+</li><li><a href="#Measuring-Tables">Measuring Tables</a>:     Analyzing table dimension. 
+</li><li><a href="#Table-Misc">Table Misc</a>:           Table miscellany.
+
+</li></ul>
+<p>Editing Programs
+
+</p>
+<ul class="menu">
+<li><a href="#Program-Modes">Program Modes</a>:        Major modes for editing programs. 
+</li><li><a href="#Defuns">Defuns</a>:               Commands to operate on major top-level parts
+                          of a program. 
+</li><li><a href="#Program-Indent">Program Indent</a>:       Adjusting indentation to show the nesting. 
+</li><li><a href="#Parentheses">Parentheses</a>:          Commands that operate on parentheses. 
+</li><li><a href="#Comments">Comments</a>: 	        Inserting, killing, and aligning comments. 
+</li><li><a href="#Documentation">Documentation</a>:        Getting documentation of functions you plan to call. 
+</li><li><a href="#Hideshow">Hideshow</a>:             Displaying blocks selectively. 
+</li><li><a href="#Symbol-Completion">Symbol Completion</a>:    Completion on symbol names of your program or language. 
+</li><li><a href="#Glasses">Glasses</a>:              Making identifiersLikeThis more readable. 
+</li><li><a href="#Misc-for-Programs">Misc for Programs</a>:    Other Emacs features useful for editing programs. 
+</li><li><a href="#C-Modes">C Modes</a>:              Special commands of C, C++, Objective-C,
+                          Java, and Pike modes. 
+</li><li><a href="#Asm-Mode">Asm Mode</a>:             Asm mode and its special features. 
+</li><li><a href="#Fortran">Fortran</a>:              Fortran mode and its special features.
+
+</li></ul>
+<p>Top-Level Definitions, or Defuns
+
+</p>
+<ul class="menu">
+<li><a href="#Left-Margin-Paren">Left Margin Paren</a>:    An open-paren or similar opening delimiter
+                          starts a defun if it is at the left margin. 
+</li><li><a href="#Moving-by-Defuns">Moving by Defuns</a>:     Commands to move over or mark a major definition. 
+</li><li><a href="#Imenu">Imenu</a>:                Making buffer indexes as menus. 
+</li><li><a href="#Which-Function">Which Function</a>:       Which Function mode shows which function you are in.
+
+</li></ul>
+<p>Indentation for Programs
+
+</p>
+<ul class="menu">
+<li><a href="#Basic-Indent">Basic Indent</a>: 	Indenting a single line. 
+</li><li><a href="#Multi_002dline-Indent">Multi-line Indent</a>:    Commands to reindent many lines at once. 
+</li><li><a href="#Lisp-Indent">Lisp Indent</a>: 		Specifying how each Lisp function should be indented. 
+</li><li><a href="#C-Indent">C Indent</a>: 		Extra features for indenting C and related modes. 
+</li><li><a href="#Custom-C-Indent">Custom C Indent</a>: 	Controlling indentation style for C and related modes.
+
+</li></ul>
+<p>Commands for Editing with Parentheses
+
+</p>
+<ul class="menu">
+<li><a href="#Expressions">Expressions</a>:          Expressions with balanced parentheses. 
+</li><li><a href="#Moving-by-Parens">Moving by Parens</a>:     Commands for moving up, down and across
+                          in the structure of parentheses. 
+</li><li><a href="#Matching">Matching</a>: 	        Insertion of a close-delimiter flashes matching open.
+
+</li></ul>
+<p>Manipulating Comments
+
+</p>
+<ul class="menu">
+<li><a href="#Comment-Commands">Comment Commands</a>:     Inserting, killing, and aligning comments. 
+</li><li><a href="#Multi_002dLine-Comments">Multi-Line Comments</a>:  Commands for adding and editing multi-line comments. 
+</li><li><a href="#Options-for-Comments">Options for Comments</a>: Customizing the comment features.
+
+</li></ul>
+<p>Documentation Lookup
+
+</p>
+<ul class="menu">
+<li><a href="#Info-Lookup">Info Lookup</a>:          Looking up library functions and commands
+                          in Info files. 
+</li><li><a href="#Man-Page">Man Page</a>:             Looking up man pages of library functions and commands. 
+</li><li><a href="#Lisp-Doc">Lisp Doc</a>:             Looking up Emacs Lisp functions, etc.
+
+</li></ul>
+<p>C and Related Modes
+
+</p>
+<ul class="menu">
+<li><a href="#Motion-in-C">Motion in C</a>:          Commands to move by C statements, etc. 
+</li><li><a href="#Electric-C">Electric C</a>:           Colon and other chars can automatically reindent. 
+</li><li><a href="#Hungry-Delete">Hungry Delete</a>:        A more powerful DEL command. 
+</li><li><a href="#Other-C-Commands">Other C Commands</a>:     Filling comments, viewing expansion of macros,
+                          and other neat features.
+
+</li></ul>
+<p>Compiling and Testing Programs
+
+</p>
+<ul class="menu">
+<li><a href="#Compilation">Compilation</a>: 		Compiling programs in languages other
+			  than Lisp (C, Pascal, etc.). 
+</li><li><a href="#Compilation-Mode">Compilation Mode</a>:     The mode for visiting compiler errors. 
+</li><li><a href="#Compilation-Shell">Compilation Shell</a>:    Customizing your shell properly
+                          for use in the compilation buffer. 
+</li><li><a href="#Grep-Searching">Grep Searching</a>:       Searching with grep. 
+</li><li><a href="#Flymake">Flymake</a>:              Finding syntax errors on the fly. 
+</li><li><a href="#Debuggers">Debuggers</a>: 		Running symbolic debuggers for non-Lisp programs. 
+</li><li><a href="#Executing-Lisp">Executing Lisp</a>: 	Various modes for editing Lisp programs,
+			  with different facilities for running
+			  the Lisp programs. 
+</li><li><a href="#Lisp-Libraries">Lisp Libraries</a>:       Creating Lisp programs to run in Emacs. 
+</li><li><a href="#Lisp-Eval">Lisp Eval</a>: 		Executing a single Lisp expression in Emacs. 
+</li><li><a href="#Lisp-Interaction">Lisp Interaction</a>:     Executing Lisp in an Emacs buffer. 
+</li><li><a href="#External-Lisp">External Lisp</a>: 	Communicating through Emacs with a separate Lisp.
+
+</li></ul>
+<p>Running Debuggers Under Emacs
+
+</p>
+<ul class="menu">
+<li><a href="#Starting-GUD">Starting GUD</a>: 	How to start a debugger subprocess. 
+</li><li><a href="#Debugger-Operation">Debugger Operation</a>: 	Connection between the debugger and source buffers. 
+</li><li><a href="#Commands-of-GUD">Commands of GUD</a>: 	Key bindings for common commands. 
+</li><li><a href="#GUD-Customization">GUD Customization</a>: 	Defining your own commands for GUD. 
+</li><li><a href="#GDB-Graphical-Interface">GDB Graphical Interface</a>:   An enhanced mode that uses GDB features to
+                          implement a graphical debugging environment through
+                          Emacs.
+
+</li></ul>
+<p>Maintaining Large Programs
+
+</p>
+<ul class="menu">
+<li><a href="#Change-Log">Change Log</a>: 	        Maintaining a change history for your program. 
+</li><li><a href="#Format-of-ChangeLog">Format of ChangeLog</a>:  What the change log file looks like. 
+</li><li><a href="#Tags">Tags</a>: 	        Go direct to any function in your program in one
+			  command.  Tags remembers which file it is in. 
+</li><li><a href="#Emerge">Emerge</a>:               A convenient way of merging two versions of a program.
+
+</li></ul>
+<p>Tags Tables
+
+</p>
+<ul class="menu">
+<li><a href="#Tag-Syntax">Tag Syntax</a>: 		Tag syntax for various types of code and text files. 
+</li><li><a href="#Create-Tags-Table">Create Tags Table</a>: 	Creating a tags table with <code>etags</code>. 
+</li><li><a href="#Etags-Regexps">Etags Regexps</a>:        Create arbitrary tags using regular expressions. 
+</li><li><a href="#Select-Tags-Table">Select Tags Table</a>: 	How to visit a tags table. 
+</li><li><a href="#Find-Tag">Find Tag</a>: 		Commands to find the definition of a specific tag. 
+</li><li><a href="#Tags-Search">Tags Search</a>: 		Using a tags table for searching and replacing. 
+</li><li><a href="#List-Tags">List Tags</a>: 		Listing and finding tags defined in a file.
+
+</li></ul>
+<p>Abbrevs
+
+</p>
+<ul class="menu">
+<li><a href="#Abbrev-Concepts">Abbrev Concepts</a>:      Fundamentals of defined abbrevs. 
+</li><li><a href="#Defining-Abbrevs">Defining Abbrevs</a>:     Defining an abbrev, so it will expand when typed. 
+</li><li><a href="#Expanding-Abbrevs">Expanding Abbrevs</a>:    Controlling expansion: prefixes, canceling expansion. 
+</li><li><a href="#Editing-Abbrevs">Editing Abbrevs</a>:      Viewing or editing the entire list of defined abbrevs. 
+</li><li><a href="#Saving-Abbrevs">Saving Abbrevs</a>:       Saving the entire list of abbrevs for another session. 
+</li><li><a href="#Dynamic-Abbrevs">Dynamic Abbrevs</a>:      Abbreviations for words already in the buffer. 
+</li><li><a href="#Dabbrev-Customization">Dabbrev Customization</a>:  What is a word, for dynamic abbrevs.  Case handling.
+
+</li></ul>
+<p>Editing Pictures
+
+</p>
+<ul class="menu">
+<li><a href="#Basic-Picture">Basic Picture</a>:          Basic concepts and simple commands of Picture Mode. 
+</li><li><a href="#Insert-in-Picture">Insert in Picture</a>:      Controlling direction of cursor motion
+                            after "self-inserting" characters. 
+</li><li><a href="#Tabs-in-Picture">Tabs in Picture</a>:        Various features for tab stops and indentation. 
+</li><li><a href="#Rectangles-in-Picture">Rectangles in Picture</a>:  Clearing and superimposing rectangles.
+
+</li></ul>
+<p>Sending Mail
+
+</p>
+<ul class="menu">
+<li><a href="#Mail-Format">Mail Format</a>:  	Format of the mail being composed. 
+</li><li><a href="#Mail-Headers">Mail Headers</a>:         Details of permitted mail header fields. 
+</li><li><a href="#Mail-Aliases">Mail Aliases</a>:         Abbreviating and grouping mail addresses. 
+</li><li><a href="#Mail-Mode">Mail Mode</a>:    	Special commands for editing mail being composed. 
+</li><li><a href="#Mail-Amusements">Mail Amusements</a>:      Distract the NSA's attention; add a fortune to a msg. 
+</li><li><a href="#Mail-Methods">Mail Methods</a>:         Using alternative mail-composition methods.
+
+</li></ul>
+<p>Reading Mail with Rmail
+
+</p>
+<ul class="menu">
+<li><a href="#Rmail-Basics">Rmail Basics</a>:         Basic concepts of Rmail, and simple use. 
+</li><li><a href="#Rmail-Scrolling">Rmail Scrolling</a>:      Scrolling through a message. 
+</li><li><a href="#Rmail-Motion">Rmail Motion</a>:         Moving to another message. 
+</li><li><a href="#Rmail-Deletion">Rmail Deletion</a>:       Deleting and expunging messages. 
+</li><li><a href="#Rmail-Inbox">Rmail Inbox</a>:          How mail gets into the Rmail file. 
+</li><li><a href="#Rmail-Files">Rmail Files</a>:          Using multiple Rmail files. 
+</li><li><a href="#Rmail-Output">Rmail Output</a>:         Copying message out to files. 
+</li><li><a href="#Rmail-Labels">Rmail Labels</a>:         Classifying messages by labeling them. 
+</li><li><a href="#Rmail-Attributes">Rmail Attributes</a>:     Certain standard labels, called attributes. 
+</li><li><a href="#Rmail-Reply">Rmail Reply</a>:          Sending replies to messages you are viewing. 
+</li><li><a href="#Rmail-Summary">Rmail Summary</a>:        Summaries show brief info on many messages. 
+</li><li><a href="#Rmail-Sorting">Rmail Sorting</a>:        Sorting messages in Rmail. 
+</li><li><a href="#Rmail-Display">Rmail Display</a>:        How Rmail displays a message; customization. 
+</li><li><a href="#Rmail-Coding">Rmail Coding</a>:         How Rmail handles decoding character sets. 
+</li><li><a href="#Rmail-Editing">Rmail Editing</a>:        Editing message text and headers in Rmail. 
+</li><li><a href="#Rmail-Digest">Rmail Digest</a>:         Extracting the messages from a digest message. 
+</li><li><a href="#Out-of-Rmail">Out of Rmail</a>: 	Converting an Rmail file to mailbox format. 
+</li><li><a href="#Rmail-Rot13">Rmail Rot13</a>:          Reading messages encoded in the rot13 code. 
+</li><li><a href="#Movemail">Movemail</a>:             More details of fetching new mail. 
+</li><li><a href="#Remote-Mailboxes">Remote Mailboxes</a>:     Retrieving Mail from Remote Mailboxes. 
+</li><li><a href="#Other-Mailbox-Formats">Other Mailbox Formats</a>:  Retrieving Mail from Local Mailboxes in
+                          Various Formats
+
+</li></ul>
+<p>Dired, the Directory Editor
+
+</p>
+<ul class="menu">
+<li><a href="#Dired-Enter">Dired Enter</a>:  	     How to invoke Dired. 
+</li><li><a href="#Dired-Navigation">Dired Navigation</a>:          How to move in the Dired buffer. 
+</li><li><a href="#Dired-Deletion">Dired Deletion</a>:            Deleting files with Dired. 
+</li><li><a href="#Flagging-Many-Files">Flagging Many Files</a>:       Flagging files based on their names. 
+</li><li><a href="#Dired-Visiting">Dired Visiting</a>:            Other file operations through Dired. 
+</li><li><a href="#Marks-vs-Flags">Marks vs Flags</a>: 	     Flagging for deletion vs marking. 
+</li><li><a href="#Operating-on-Files">Operating on Files</a>: 	     How to copy, rename, print, compress, etc. 
+			       either one file or several files. 
+</li><li><a href="#Shell-Commands-in-Dired">Shell Commands in Dired</a>:   Running a shell command on the marked files. 
+</li><li><a href="#Transforming-File-Names">Transforming File Names</a>:   Using patterns to rename multiple files. 
+</li><li><a href="#Comparison-in-Dired">Comparison in Dired</a>: 	     Running `diff' by way of Dired. 
+</li><li><a href="#Subdirectories-in-Dired">Subdirectories in Dired</a>:   Adding subdirectories to the Dired buffer. 
+</li><li><a href="#Subdir-Switches">Subdir Switches</a>:           Subdirectory switches in Dired. 
+</li><li><a href="#Subdirectory-Motion">Subdirectory Motion</a>: 	     Moving across subdirectories, and up and down. 
+</li><li><a href="#Hiding-Subdirectories">Hiding Subdirectories</a>:     Making subdirectories visible or invisible. 
+</li><li><a href="#Dired-Updating">Dired Updating</a>:            Discarding lines for files of no interest. 
+</li><li><a href="#Dired-and-Find">Dired and Find</a>: 	     Using `find' to choose the files for Dired. 
+</li><li><a href="#Wdired">Wdired</a>:                    Operating on files by editing the Dired buffer. 
+</li><li><a href="#Image_002dDired">Image-Dired</a>:               Viewing image thumbnails in Dired
+</li><li><a href="#Misc-Dired-Features">Misc Dired Features</a>:       Various other features.
+
+</li></ul>
+<p>The Calendar and the Diary
+
+</p>
+<ul class="menu">
+<li><a href="#Calendar-Motion">Calendar Motion</a>:      Moving through the calendar; selecting a date. 
+</li><li><a href="#Scroll-Calendar">Scroll Calendar</a>:      Bringing earlier or later months onto the screen. 
+</li><li><a href="#Counting-Days">Counting Days</a>:        How many days are there between two dates? 
+</li><li><a href="#General-Calendar">General Calendar</a>:     Exiting or recomputing the calendar. 
+</li><li><a href="#Writing-Calendar-Files">Writing Calendar Files</a>:  Writing calendars to files of various formats. 
+</li><li><a href="#Holidays">Holidays</a>:             Displaying dates of holidays. 
+</li><li><a href="#Sunrise_002fSunset">Sunrise/Sunset</a>:       Displaying local times of sunrise and sunset. 
+</li><li><a href="#Lunar-Phases">Lunar Phases</a>:         Displaying phases of the moon. 
+</li><li><a href="#Other-Calendars">Other Calendars</a>:      Converting dates to other calendar systems. 
+</li><li><a href="#Diary">Diary</a>:                Displaying events from your diary. 
+</li><li><a href="#Appointments">Appointments</a>: 	Reminders when it's time to do something. 
+</li><li><a href="#Importing-Diary">Importing Diary</a>:      Converting diary events to/from other formats. 
+</li><li><a href="#Daylight-Saving">Daylight Saving</a>:     How to specify when daylight saving time is active. 
+</li><li><a href="#Time-Intervals">Time Intervals</a>:       Keeping track of time intervals. 
+</li><li><a href="#Advanced-Calendar_002fDiary-Usage">Advanced Calendar/Diary Usage</a>:  Advanced Calendar/Diary customization.
+
+</li></ul>
+<p>Movement in the Calendar
+
+</p>
+<ul class="menu">
+<li><a href="#Calendar-Unit-Motion">Calendar Unit Motion</a>:       Moving by days, weeks, months, and years. 
+</li><li><a href="#Move-to-Beginning-or-End">Move to Beginning or End</a>:   Moving to start/end of weeks, months, and years. 
+</li><li><a href="#Specified-Dates">Specified Dates</a>: 	      Moving to the current date or another
+				specific date.
+
+</li></ul>
+<p>Conversion To and From Other Calendars
+
+</p>
+<ul class="menu">
+<li><a href="#Calendar-Systems">Calendar Systems</a>: 	   The calendars Emacs understands
+			     (aside from Gregorian). 
+</li><li><a href="#To-Other-Calendar">To Other Calendar</a>: 	   Converting the selected date to various calendars. 
+</li><li><a href="#From-Other-Calendar">From Other Calendar</a>: 	   Moving to a date specified in another calendar. 
+</li><li><a href="#Mayan-Calendar">Mayan Calendar</a>: 	   Moving to a date specified in a Mayan calendar.
+
+</li></ul>
+<p>The Diary
+
+</p>
+<ul class="menu">
+<li><a href="#Displaying-the-Diary">Displaying the Diary</a>:    Viewing diary entries and associated calendar dates. 
+</li><li><a href="#Format-of-Diary-File">Format of Diary File</a>:    Entering events in your diary. 
+</li><li><a href="#Date-Formats">Date Formats</a>: 	   Various ways you can specify dates. 
+</li><li><a href="#Adding-to-Diary">Adding to Diary</a>: 	   Commands to create diary entries. 
+</li><li><a href="#Special-Diary-Entries">Special Diary Entries</a>:   Anniversaries, blocks of dates, cyclic entries, etc.
+
+</li></ul>
+<p>Gnus
+
+</p>
+<ul class="menu">
+<li><a href="#Buffers-of-Gnus">Buffers of Gnus</a>: 	The group, summary, and article buffers. 
+</li><li><a href="#Gnus-Startup">Gnus Startup</a>: 	What you should know about starting Gnus. 
+</li><li><a href="#Summary-of-Gnus">Summary of Gnus</a>: 	A short description of the basic Gnus commands.
+
+</li></ul>
+<p>Running Shell Commands from Emacs
+
+</p>
+<ul class="menu">
+<li><a href="#Single-Shell">Single Shell</a>: 	How to run one shell command and return. 
+</li><li><a href="#Interactive-Shell">Interactive Shell</a>: 	Permanent shell taking input via Emacs. 
+</li><li><a href="#Shell-Mode">Shell Mode</a>: 		Special Emacs commands used with permanent shell. 
+</li><li><a href="#Shell-Prompts">Shell Prompts</a>:        Two ways to recognize shell prompts. 
+</li><li><a href="#Shell-History">Shell History</a>:        Repeating previous commands in a shell buffer. 
+</li><li><a href="#Directory-Tracking">Directory Tracking</a>:   Keeping track when the subshell changes directory. 
+</li><li><a href="#Shell-Options">Shell Options</a>:        Options for customizing Shell mode. 
+</li><li><a href="#Terminal-emulator">Terminal emulator</a>:    An Emacs window as a terminal emulator. 
+</li><li><a href="#Term-Mode">Term Mode</a>:            Special Emacs commands used in Term mode. 
+</li><li><a href="#Paging-in-Term">Paging in Term</a>:       Paging in the terminal emulator. 
+</li><li><a href="#Remote-Host">Remote Host</a>: 		Connecting to another computer.
+
+</li></ul>
+<p>Using Emacs as a Server
+
+</p>
+<ul class="menu">
+<li><a href="#Invoking-emacsclient">Invoking emacsclient</a>:  Emacs client startup options.
+
+</li></ul>
+<p>Printing Hard Copies
+
+</p>
+<ul class="menu">
+<li><a href="#PostScript">PostScript</a>: 	         Printing buffers or regions as PostScript. 
+</li><li><a href="#PostScript-Variables">PostScript Variables</a>:  Customizing the PostScript printing commands. 
+</li><li><a href="#Printing-Package">Printing Package</a>:      An optional advanced printing interface.
+
+</li></ul>
+<p>Hyperlinking and Navigation Features
+
+</p>
+<ul class="menu">
+<li><a href="#Browse_002dURL">Browse-URL</a>:           Following URLs. 
+</li><li><a href="#Goto_002daddress">Goto-address</a>:         Activating URLs. 
+</li><li><a href="#FFAP">FFAP</a>:                 Finding files etc. at point.
+
+</li></ul>
+<p>Customization
+
+</p>
+<ul class="menu">
+<li><a href="#Minor-Modes">Minor Modes</a>: 		Each minor mode is one feature you can turn on
+			  independently of any others. 
+</li><li><a href="#Easy-Customization">Easy Customization</a>:   Convenient way to browse and change user options. 
+</li><li><a href="#Variables">Variables</a>: 		Many Emacs commands examine Emacs variables
+			  to decide what to do; by setting variables,
+			  you can control their functioning. 
+</li><li><a href="#Key-Bindings">Key Bindings</a>: 	The keymaps say what command each key runs. 
+			  By changing them, you can "redefine keys". 
+</li><li><a href="#Syntax">Syntax</a>: 		The syntax table controls how words and
+			  expressions are parsed. 
+</li><li><a href="#Init-File">Init File</a>: 		How to write common customizations in the
+			  <samp><span class="file">.emacs</span></samp> file.
+
+</li></ul>
+<p>Variables
+
+</p>
+<ul class="menu">
+<li><a href="#Examining">Examining</a>: 	        Examining or setting one variable's value. 
+</li><li><a href="#Hooks">Hooks</a>: 	        Hook variables let you specify programs for parts
+		          of Emacs to run on particular occasions. 
+</li><li><a href="#Locals">Locals</a>: 	        Per-buffer values of variables. 
+</li><li><a href="#File-Variables">File Variables</a>:       How files can specify variable values.
+
+</li></ul>
+<p>Customizing Key Bindings
+
+</p>
+<ul class="menu">
+<li><a href="#Keymaps">Keymaps</a>:              Generalities.  The global keymap. 
+</li><li><a href="#Prefix-Keymaps">Prefix Keymaps</a>:       Keymaps for prefix keys. 
+</li><li><a href="#Local-Keymaps">Local Keymaps</a>:        Major and minor modes have their own keymaps. 
+</li><li><a href="#Minibuffer-Maps">Minibuffer Maps</a>:      The minibuffer uses its own local keymaps. 
+</li><li><a href="#Rebinding">Rebinding</a>:            How to redefine one key's meaning conveniently. 
+</li><li><a href="#Init-Rebinding">Init Rebinding</a>:       Rebinding keys with your init file, <samp><span class="file">.emacs</span></samp>. 
+</li><li><a href="#Function-Keys">Function Keys</a>:        Rebinding terminal function keys. 
+</li><li><a href="#Named-ASCII-Chars">Named ASCII Chars</a>:    Distinguishing &lt;TAB&gt; from <kbd>C-i</kbd>, and so on. 
+</li><li><a href="#Mouse-Buttons">Mouse Buttons</a>:        Rebinding mouse buttons in Emacs. 
+</li><li><a href="#Disabling">Disabling</a>:            Disabling a command means confirmation is required
+                          before it can be executed.  This is done to protect
+                          beginners from surprises.
+
+</li></ul>
+<p>The Init File, <samp><span class="file">~/.emacs</span></samp>
+
+</p>
+<ul class="menu">
+<li><a href="#Init-Syntax">Init Syntax</a>: 	        Syntax of constants in Emacs Lisp. 
+</li><li><a href="#Init-Examples">Init Examples</a>:        How to do some things with an init file. 
+</li><li><a href="#Terminal-Init">Terminal Init</a>:        Each terminal type can have an init file. 
+</li><li><a href="#Find-Init">Find Init</a>: 	        How Emacs finds the init file. 
+</li><li><a href="#Init-Non_002dASCII">Init Non-ASCII</a>:       Using non-<acronym>ASCII</acronym> characters in an init file.
+
+</li></ul>
+<p>Dealing with Emacs Trouble
+
+</p>
+<ul class="menu">
+<li><a href="#DEL-Does-Not-Delete">DEL Does Not Delete</a>:  What to do if &lt;DEL&gt; doesn't delete. 
+</li><li><a href="#Stuck-Recursive">Stuck Recursive</a>:      `[...]' in mode line around the parentheses. 
+</li><li><a href="#Screen-Garbled">Screen Garbled</a>:       Garbage on the screen. 
+</li><li><a href="#Text-Garbled">Text Garbled</a>:         Garbage in the text. 
+</li><li><a href="#Memory-Full">Memory Full</a>:          How to cope when you run out of memory. 
+</li><li><a href="#After-a-Crash">After a Crash</a>:        Recovering editing in an Emacs session that crashed. 
+</li><li><a href="#Emergency-Escape">Emergency Escape</a>:     Emergency escape---
+                          What to do if Emacs stops responding. 
+</li><li><a href="#Total-Frustration">Total Frustration</a>:    When you are at your wits' end.
+
+</li></ul>
+<p>Reporting Bugs
+
+</p>
+<ul class="menu">
+<li><a href="#Bug-Criteria">Bug Criteria</a>:         Have you really found a bug? 
+</li><li><a href="#Understanding-Bug-Reporting">Understanding Bug Reporting</a>: 	How to report a bug effectively. 
+</li><li><a href="#Checklist">Checklist</a>: 		Steps to follow for a good bug report. 
+</li><li><a href="#Sending-Patches">Sending Patches</a>: 	How to send a patch for GNU Emacs.
+
+</li></ul>
+<p>Command Line Arguments for Emacs Invocation
+
+</p>
+<ul class="menu">
+<li><a href="#Action-Arguments">Action Arguments</a>: 	Arguments to visit files, load libraries,
+			  and call functions. 
+</li><li><a href="#Initial-Options">Initial Options</a>:      Arguments that take effect while starting Emacs. 
+</li><li><a href="#Command-Example">Command Example</a>:      Examples of using command line arguments. 
+</li><li><a href="#Resume-Arguments">Resume Arguments</a>: 	Specifying arguments when you resume a running Emacs. 
+</li><li><a href="#Environment">Environment</a>:          Environment variables that Emacs uses. 
+</li><li><a href="#Display-X">Display X</a>:            Changing the default display and using remote login. 
+</li><li><a href="#Font-X">Font X</a>: 	        Choosing a font for text, under X. 
+</li><li><a href="#Colors">Colors</a>: 	        Choosing display colors. 
+</li><li><a href="#Window-Size-X">Window Size X</a>:        Start-up window size, under X. 
+</li><li><a href="#Borders-X">Borders X</a>: 	        Internal and external borders, under X. 
+</li><li><a href="#Title-X">Title X</a>:              Specifying the initial frame's title. 
+</li><li><a href="#Icons-X">Icons X</a>:              Choosing what sort of icon to use, under X. 
+</li><li><a href="#Misc-X">Misc X</a>:               Other display options.
+
+</li></ul>
+<p>Environment Variables
+
+</p>
+<ul class="menu">
+<li><a href="#General-Variables">General Variables</a>: 	Environment variables that all versions of Emacs use. 
+</li><li><a href="#Misc-Variables">Misc Variables</a>: 	Certain system specific variables. 
+</li><li><a href="#MS_002dWindows-Registry">MS-Windows Registry</a>:  An alternative to the environment on MS-Windows.
+
+</li></ul>
+<p>X Options and Resources
+
+</p>
+<ul class="menu">
+<li><a href="#Resources">Resources</a>:            Using X resources with Emacs (in general). 
+</li><li><a href="#Table-of-Resources">Table of Resources</a>:   Table of specific X resources that affect Emacs. 
+</li><li><a href="#Face-Resources">Face Resources</a>:       X resources for customizing faces. 
+</li><li><a href="#Lucid-Resources">Lucid Resources</a>:      X resources for Lucid menus. 
+</li><li><a href="#LessTif-Resources">LessTif Resources</a>:    X resources for LessTif and Motif menus. 
+</li><li><a href="#GTK-resources">GTK resources</a>:        Resources for GTK widgets.
+
+</li></ul>
+<p>Emacs and Mac OS
+
+</p>
+<ul class="menu">
+<li><a href="#Mac-Input">Mac Input</a>:            Keyboard and mouse input on Mac. 
+</li><li><a href="#Mac-International">Mac International</a>:    International character sets on Mac. 
+</li><li><a href="#Mac-Environment-Variables">Mac Environment Variables</a>:   Setting environment variables for Emacs. 
+</li><li><a href="#Mac-Directories">Mac Directories</a>:      Volumes and directories on Mac. 
+</li><li><a href="#Mac-Font-Specs">Mac Font Specs</a>:       Specifying fonts on Mac. 
+</li><li><a href="#Mac-Functions">Mac Functions</a>:        Mac-specific Lisp functions.
+
+</li></ul>
+<p>Emacs and Microsoft Windows/MS-DOS
+
+</p>
+<ul class="menu">
+<li><a href="#Text-and-Binary">Text and Binary</a>:      Text files use CRLF to terminate lines. 
+</li><li><a href="#Windows-Files">Windows Files</a>:        File-name conventions on Windows. 
+</li><li><a href="#ls-in-Lisp">ls in Lisp</a>:           Emulation of <code>ls</code> for Dired. 
+</li><li><a href="#Windows-HOME">Windows HOME</a>:         Where Emacs looks for your <samp><span class="file">.emacs</span></samp>. 
+</li><li><a href="#Windows-Keyboard">Windows Keyboard</a>:     Windows-specific keyboard features. 
+</li><li><a href="#Windows-Mouse">Windows Mouse</a>:        Windows-specific mouse features. 
+</li><li><a href="#Windows-Processes">Windows Processes</a>:    Running subprocesses on Windows. 
+</li><li><a href="#Windows-Printing">Windows Printing</a>:     How to specify the printer on MS-Windows. 
+</li><li><a href="#Windows-Misc">Windows Misc</a>:         Miscellaneous Windows features. 
+</li><li><a href="#MS_002dDOS">MS-DOS</a>:               Using Emacs on MS-DOS (otherwise known as <dfn>MS-DOG</dfn>). 
+</li></ul>
+
+<div class="node">
+<p></p><hr>
+<a name="Distrib"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Intro">Intro</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="unnumbered">Distribution</h2>
+
+<p>GNU Emacs is <dfn>free software</dfn>; this means that everyone is free to
+use it and free to redistribute it on certain conditions.  GNU Emacs
+is not in the public domain; it is copyrighted and there are
+restrictions on its distribution, but these restrictions are designed
+to permit everything that a good cooperating citizen would want to do. 
+What is not allowed is to try to prevent others from further sharing
+any version of GNU Emacs that they might get from you.  The precise
+conditions are found in the GNU General Public License that comes with
+Emacs and also appears in this manual<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>. 
+See <a href="#Copying">Copying</a>.
+
+   </p><p>One way to get a copy of GNU Emacs is from someone else who has it. 
+You need not ask for our permission to do so, or tell any one else;
+just copy it.  If you have access to the Internet, you can get the
+latest distribution version of GNU Emacs by anonymous FTP; see
+<a href="http://www.gnu.org/software/emacs">http://www.gnu.org/software/emacs</a> on our website for more
+information.
+
+   </p><p>You may also receive GNU Emacs when you buy a computer.  Computer
+manufacturers are free to distribute copies on the same terms that apply to
+everyone else.  These terms require them to give you the full sources,
+including whatever changes they may have made, and to permit you to
+redistribute the GNU Emacs received from them under the usual terms of the
+General Public License.  In other words, the program must be free for you
+when you get it, not just free for the manufacturer.
+
+   </p><p>You can also order copies of GNU Emacs from the Free Software
+Foundation.  This is a convenient and reliable way to get a copy; it is
+also a good way to help fund our work.  We also sell hardcopy versions
+of this manual and <cite>An Introduction to Programming in Emacs Lisp</cite>,
+by Robert J. Chassell.  You can find an order form on our web site at
+<a href="http://www.gnu.org/order/order.html">http://www.gnu.org/order/order.html</a>.  For further information,
+write to
+
+</p><pre class="display">     Free Software Foundation
+     51 Franklin Street, Fifth Floor
+     Boston, MA 02110-1301
+     USA
+</pre>
+   <p>The income from distribution fees goes to support the foundation's
+purpose: the development of new free software, and improvements to our
+existing programs including GNU Emacs.
+
+   </p><p>If you find GNU Emacs useful, please <strong>send a donation</strong> to the
+Free Software Foundation to support our work.  Donations to the Free
+Software Foundation are tax deductible in the US.  If you use GNU Emacs
+at your workplace, please suggest that the company make a donation.  If
+company policy is unsympathetic to the idea of donating to charity, you
+might instead suggest ordering a CD-ROM from the Foundation
+occasionally, or subscribing to periodic updates.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Intro"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Glossary">Glossary</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Distrib">Distrib</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="unnumbered">Introduction</h2>
+
+<p>You are reading about GNU Emacs, the GNU incarnation of the
+advanced, self-documenting, customizable, extensible editor Emacs. 
+(The `G' in `GNU' is not silent.)
+
+   </p><p>We call Emacs advanced because it provides much more than simple
+insertion and deletion.  It can control subprocesses, indent programs
+automatically, show two or more files at once, and edit formatted
+text.  Emacs editing commands operate in terms of characters, words,
+lines, sentences, paragraphs, and pages, as well as expressions and
+comments in various programming languages.
+
+   </p><p><dfn>Self-documenting</dfn> means that at any time you can type a special
+character, <kbd>Control-h</kbd>, to find out what your options are.  You can
+also use it to find out what any command does, or to find all the commands
+that pertain to a topic.  See <a href="#Help">Help</a>.
+
+   </p><p><dfn>Customizable</dfn> means that you can alter Emacs commands' behavior
+in simple ways.  For example, if you use a programming language in
+which comments start with `<samp><span class="samp">&lt;**</span></samp>' and end with `<samp><span class="samp">**&gt;</span></samp>', you can
+tell the Emacs comment manipulation commands to use those strings
+(see <a href="#Comments">Comments</a>).  Another sort of customization is rearrangement of
+the command set.  For example, you can rebind the basic cursor motion
+commands (up, down, left and right) to any keys on the keyboard that
+you find comfortable.  See <a href="#Customization">Customization</a>.
+
+   </p><p><dfn>Extensible</dfn> means that you can go beyond simple customization
+and write entirely new commands&#8212;programs in the Lisp language to be
+run by Emacs's own Lisp interpreter.  Emacs is an &#8220;on-line
+extensible&#8221; system, which means that it is divided into many
+functions that call each other, any of which can be redefined in the
+middle of an editing session.  Almost any part of Emacs can be
+replaced without making a separate copy of all of Emacs.  Most of the
+editing commands of Emacs are written in Lisp; the few exceptions
+could have been written in Lisp but use C instead for efficiency. 
+Writing an extension is programming, but non-programmers can use it
+afterwards.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/eintr.html#Top">Emacs Lisp Intro</a>, if you want to learn Emacs
+Lisp programming.
+
+   </p><p>When running on a graphical display, Emacs provides its own menus
+and convenient handling of mouse buttons.  In addition, Emacs provides
+many of the benefits of a graphical display even on a text-only
+terminal.  For instance, it can highlight parts of a file, display and
+edit several files at once, move text between files, and edit files
+while running shell commands.
+
+<!-- This is part of the Emacs manual. -->
+<!-- Copyright (C) 1985, 1986, 1987, 1993, 1994, 1995, 1997, 2001, 2002, -->
+<!-- 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc. -->
+<!-- See file emacs.texi for copying conditions. -->
+</p><div class="node">
+<p></p><hr>
+<a name="Screen"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#User-Input">User Input</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Acknowledgments">Acknowledgments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">1 The Organization of the Screen</h2>
+
+<p><a name="index-screen-1"></a><a name="index-parts-of-the-screen-2"></a>
+  On a text-only terminal, the Emacs display occupies the whole
+screen.  On a graphical display, such as on GNU/Linux using the X
+Window System, Emacs creates its own windows to use.  We use the term
+<dfn>frame</dfn> to mean the entire text-only screen or an entire
+system-level window used by Emacs.  Emacs uses both kinds of frames,
+in the same way, to display your editing.  Emacs normally starts out
+with just one frame, but you can create additional frames if you wish. 
+See <a href="#Frames">Frames</a>.
+
+   </p><p>When you start Emacs, the main central area of the frame, all except
+for the top and bottom and sides, displays the text you are editing. 
+This area is called <dfn>the window</dfn>.  At the top there is normally a
+<dfn>menu bar</dfn> where you can access a series of menus; then there may
+be a <dfn>tool bar</dfn>, a row of icons that perform editing commands if
+you click on them.  Below this, the window begins, often with a
+<dfn>scroll bar</dfn> on one side.  Below the window comes the last line of
+the frame, a special <dfn>echo area</dfn> or <dfn>minibuffer window</dfn>, where
+prompts appear and you enter information when Emacs asks for it.  See
+following sections for more information about these special lines.
+
+   </p><p>You can subdivide the window horizontally or vertically to make
+multiple text windows, each of which can independently display some
+file or text (see <a href="#Windows">Windows</a>).  In this manual, the word &#8220;window&#8221;
+refers to the initial large window if not subdivided, or any one of
+the multiple windows you have subdivided it into.
+
+   </p><p>At any time, one window is the <dfn>selected window</dfn>.  On graphical
+displays, the selected window normally shows a more prominent cursor
+(usually solid and blinking) while other windows show a weaker cursor
+(such as a hollow box).   Text terminals have just one cursor, so it
+always appears in the selected window.
+
+   </p><p>Most Emacs commands implicitly apply to the text in the selected
+window; the text in unselected windows is mostly visible for
+reference.  However, mouse commands generally operate on whatever
+window you click them in, whether selected or not.  If you use
+multiple frames on a graphical display, then giving the input focus to
+a particular frame selects a window in that frame.
+
+   </p><p>Each window's last line is a <dfn>mode line</dfn>, which describes what
+is going on in that window.  It appears in different color and/or a &#8220;3D&#8221;
+box if the terminal supports them; its contents normally begin with
+`<samp><span class="samp">--:--&nbsp;&nbsp;*scratch*</span></samp>'<!-- /@w --> when Emacs starts.  The mode line
+displays status information such as what buffer is being displayed
+above it in the window, what major and minor modes are in use, and
+whether the buffer contains unsaved changes.
+
+</p><ul class="menu">
+<li><a accesskey="1" href="#Point">Point</a>: 	        The place in the text where editing commands operate. 
+</li><li><a accesskey="2" href="#Echo-Area">Echo Area</a>:            Short messages appear at the bottom of the screen. 
+</li><li><a accesskey="3" href="#Mode-Line">Mode Line</a>: 	        Interpreting the mode line. 
+</li><li><a accesskey="4" href="#Menu-Bar">Menu Bar</a>:             How to use the menu bar. 
+</li></ul>
+
+<div class="node">
+<p></p><hr>
+<a name="Point"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Echo-Area">Echo Area</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Screen">Screen</a>
+
+</div>
+
+<h3 class="section">1.1 Point</h3>
+
+<p><a name="index-point-3"></a><a name="index-cursor-4"></a>
+  Within Emacs, the active cursor shows the location at which
+editing commands will take effect.  This location is called <dfn>point</dfn>. 
+Many Emacs commands move point through the text, so that you can edit at
+different places in it.  You can also place point by clicking mouse
+button 1 (normally the left button).
+
+   </p><p>While the cursor appears to be <em>on</em> a character, you should
+think of point as <em>between</em> two characters; it points <em>before</em>
+the character that appears under the cursor.  For example, if your text
+looks like `<samp><span class="samp">frob</span></samp>' with the cursor over the `<samp><span class="samp">b</span></samp>', then point is
+between the `<samp><span class="samp">o</span></samp>' and the `<samp><span class="samp">b</span></samp>'.  If you insert the character
+`<samp><span class="samp">!</span></samp>' at that position, the result is `<samp><span class="samp">fro!b</span></samp>', with point
+between the `<samp><span class="samp">!</span></samp>' and the `<samp><span class="samp">b</span></samp>'.  Thus, the cursor remains over
+the `<samp><span class="samp">b</span></samp>', as before.
+
+   </p><p>Sometimes people speak of &#8220;the cursor&#8221; when they mean &#8220;point,&#8221; or
+speak of commands that move point as &#8220;cursor motion&#8221; commands.
+
+   </p><p>If you are editing several files in Emacs, each in its own buffer,
+each buffer has its own point location.  A buffer that is not
+currently displayed remembers its point location in case you display
+it again later.  When Emacs displays multiple windows, each window has
+its own point location.  If the same buffer appears in more than one
+window, each window has its own point position in that buffer, and (when
+possible) its own cursor.
+
+   </p><p>A text-only terminal has just one cursor, in the selected window. 
+The other windows do not show a cursor, even though they do have their
+own position of point.  When Emacs updates the screen on a text-only
+terminal, it has to put the cursor temporarily at the place the output
+goes.  This doesn't mean point is there, though.  Once display
+updating finishes, Emacs puts the cursor where point is.
+
+   </p><p>On graphical displays, Emacs shows a cursor in each window; the
+selected window's cursor is solid and blinking, and the other cursors
+are just hollow.  Thus, the most prominent cursor always shows you the
+selected window, on all kinds of terminals.
+
+   </p><p>See <a href="#Cursor-Display">Cursor Display</a>, for customizable variables that control display
+of the cursor or cursors.
+
+   </p><p>The term &#8220;point&#8221; comes from the character `<samp><span class="samp">.</span></samp>', which was the
+command in TECO (the language in which the original Emacs was written)
+for accessing the value now called &#8220;point.&#8221;
+
+</p><div class="node">
+<p></p><hr>
+<a name="Echo-Area"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Mode-Line">Mode Line</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Point">Point</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Screen">Screen</a>
+
+</div>
+
+<h3 class="section">1.2 The Echo Area</h3>
+
+<p><a name="index-echo-area-5"></a>
+  The line at the bottom of the frame (below the mode line) is the
+<dfn>echo area</dfn>.  It is used to display small amounts of text for
+various purposes.
+
+   </p><p><dfn>Echoing</dfn> means displaying the characters that you type.  At the
+command line, the operating system normally echoes all your input. 
+Emacs handles echoing differently.
+
+   </p><p>Single-character commands do not echo in Emacs, and multi-character
+commands echo only if you pause while typing them.  As soon as you pause
+for more than a second in the middle of a command, Emacs echoes all the
+characters of the command so far.  This is to <dfn>prompt</dfn> you for the
+rest of the command.  Once echoing has started, the rest of the command
+echoes immediately as you type it.  This behavior is designed to give
+confident users fast response, while giving hesitant users maximum
+feedback.  You can change this behavior by setting a variable
+(see <a href="#Display-Custom">Display Custom</a>).
+
+   </p><p><a name="index-error-message-in-the-echo-area-6"></a>  If a command cannot do its job, it may display an <dfn>error
+message</dfn> in the echo area.  Error messages are accompanied by beeping
+or by flashing the screen.  The error also discards any input you have
+typed ahead.
+
+   </p><p>Some commands display informative messages in the echo area.  These
+messages look much like error messages, but they are not announced
+with a beep and do not throw away input.  Sometimes the message tells
+you what the command has done, when this is not obvious from looking
+at the text being edited.  Sometimes the sole purpose of a command is
+to show you a message giving you specific information&#8212;for example,
+<kbd>C-x =</kbd> (hold down &lt;CTRL&gt; and type <kbd>x</kbd>, then let go of
+&lt;CTRL&gt; and type <kbd>=</kbd>) displays a message describing the
+character position of point in the text and its current column in the
+window.  Commands that take a long time often display messages ending
+in `<samp><span class="samp">...</span></samp>' while they are working, and add `<samp><span class="samp">done</span></samp>' at the end
+when they are finished.  They may also indicate progress with
+percentages.
+
+   </p><p><a name="index-g_t_0040samp_007b_002aMessages_002a_007d-buffer-7"></a><a name="index-saved-echo-area-messages-8"></a><a name="index-messages-saved-from-echo-area-9"></a>  Echo-area informative messages are saved in an editor buffer named
+`<samp><span class="samp">*Messages*</span></samp>'.  (We have not explained buffers yet; see
+<a href="#Buffers">Buffers</a>, for more information about them.)  If you miss a message
+that appears briefly on the screen, you can switch to the
+`<samp><span class="samp">*Messages*</span></samp>' buffer to see it again.  (Successive progress messages
+are often collapsed into one in that buffer.)
+
+   </p><p><a name="index-message_002dlog_002dmax-10"></a>  The size of `<samp><span class="samp">*Messages*</span></samp>' is limited to a certain number of
+lines.  The variable <code>message-log-max</code> specifies how many lines. 
+Once the buffer has that many lines, adding lines at the end deletes lines
+from the beginning, to keep the size constant.  See <a href="#Variables">Variables</a>, for
+how to set variables such as <code>message-log-max</code>.
+
+   </p><p>The echo area is also used to display the <dfn>minibuffer</dfn>, a window
+where you can input arguments to commands, such as the name of a file
+to be edited.  When the minibuffer is in use, the echo area begins
+with a prompt string that usually ends with a colon; also, the cursor
+appears in that line because it is the selected window.  You can
+always get out of the minibuffer by typing <kbd>C-g</kbd>. 
+See <a href="#Minibuffer">Minibuffer</a>.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Mode-Line"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Menu-Bar">Menu Bar</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Echo-Area">Echo Area</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Screen">Screen</a>
+
+</div>
+
+<h3 class="section">1.3 The Mode Line</h3>
+
+<p><a name="index-mode-line-11"></a><a name="index-top-level-12"></a>
+  Each text window's last line is a <dfn>mode line</dfn>, which describes
+what is going on in that window.  The mode line starts and ends with
+dashes.  When there is only one text window, the mode line appears
+right above the echo area; it is the next-to-last line in the frame. 
+On a text-only terminal, the mode line is in inverse video if the
+terminal supports that; on a graphics display, the mode line has a 3D
+box appearance to help it stand out.  The mode line of the selected
+window is highlighted if possible; see <a href="#Optional-Mode-Line">Optional Mode Line</a>, for
+more information.
+
+   </p><p>Normally, the mode line looks like this:
+
+</p><pre class="example">     -<var>cs</var>:<var>ch</var>-<var>fr</var>  <var>buf</var>      <var>pos</var> <var>line</var>   (<var>major</var> <var>minor</var>)------
+</pre>
+   <p class="noindent">This gives information about the window and the buffer it displays: the
+buffer's name, what major and minor modes are in use, whether the
+buffer's text has been changed, and how far down the buffer you are
+currently looking.
+
+   </p><p><var>ch</var> contains two stars `<samp><span class="samp">**</span></samp>' if the text in the buffer has
+been edited (the buffer is &#8220;modified&#8221;), or `<samp><span class="samp">--</span></samp>' if the buffer has
+not been edited.  For a read-only buffer, it is `<samp><span class="samp">%*</span></samp>' if the buffer
+is modified, and `<samp><span class="samp">%%</span></samp>' otherwise.
+
+   </p><p><var>fr</var> gives the selected frame name (see <a href="#Frames">Frames</a>).  It appears
+only on text-only terminals.  The initial frame's name is `<samp><span class="samp">F1</span></samp>'.
+
+   </p><p><var>buf</var> is the name of the window's <dfn>buffer</dfn>.  Usually this is
+the same as the name of a file you are editing.  See <a href="#Buffers">Buffers</a>.
+
+   </p><p>The buffer displayed in the selected window (the window with the
+cursor) is the <dfn>current buffer</dfn>, where editing happens.  When a
+command's effect applies to &#8220;the buffer,&#8221; we mean it does those
+things to the current buffer.
+
+   </p><p><var>pos</var> tells you whether there is additional text above the top of
+the window, or below the bottom.  If your buffer is small and it is all
+visible in the window, <var>pos</var> is `<samp><span class="samp">All</span></samp>'.  Otherwise, it is
+`<samp><span class="samp">Top</span></samp>' if you are looking at the beginning of the buffer, `<samp><span class="samp">Bot</span></samp>'
+if you are looking at the end of the buffer, or `<samp><var>nn</var><span class="samp">%</span></samp>', where
+<var>nn</var> is the percentage of the buffer above the top of the window. 
+With Size Indication mode, you can display the size of the buffer as
+well.  See <a href="#Optional-Mode-Line">Optional Mode Line</a>.
+
+   </p><p><var>line</var> is `<samp><span class="samp">L</span></samp>' followed by the current line number of point. 
+This is present when Line Number mode is enabled (it normally is). 
+You can display the current column number too, by turning on Column
+Number mode.  It is not enabled by default because it is somewhat
+slower.  See <a href="#Optional-Mode-Line">Optional Mode Line</a>.
+
+   </p><p><var>major</var> is the name of the <dfn>major mode</dfn> in effect in the
+buffer.  A buffer can only be in one major mode at a time.  The major
+modes available include Fundamental mode (the least specialized), Text
+mode, Lisp mode, C mode, Texinfo mode, and many others.  See <a href="#Major-Modes">Major Modes</a>, for details of how the modes differ and how to select
+them.
+
+   </p><p>Some major modes display additional information after the major mode
+name.  For example, Rmail buffers display the current message number and
+the total number of messages.  Compilation buffers and Shell buffers
+display the status of the subprocess.
+
+   </p><p><var>minor</var> is a list of some of the <dfn>minor modes</dfn> that are
+turned on at the moment in the window's chosen buffer.  For example,
+`<samp><span class="samp">Fill</span></samp>' means that Auto Fill mode is on.  `<samp><span class="samp">Abbrev</span></samp>' means that
+Word Abbrev mode is on.  `<samp><span class="samp">Ovwrt</span></samp>' means that Overwrite mode is on. 
+See <a href="#Minor-Modes">Minor Modes</a>, for more information.
+
+   </p><p>`<samp><span class="samp">Narrow</span></samp>' means that the buffer being displayed has editing
+restricted to only a portion of its text.  (This is not really a minor
+mode, but is like one.)  See <a href="#Narrowing">Narrowing</a>.  `<samp><span class="samp">Def</span></samp>' means that a
+keyboard macro is being defined.  See <a href="#Keyboard-Macros">Keyboard Macros</a>.
+
+   </p><p>In addition, if Emacs is inside a recursive editing level, square
+brackets (`<samp><span class="samp">[...]</span></samp>') appear around the parentheses that
+surround the modes.  If Emacs is in one recursive editing level within
+another, double square brackets appear, and so on.  Since recursive
+editing levels affect Emacs globally, not just one buffer, the square
+brackets appear in every window's mode line or not in any of them. 
+See <a href="#Recursive-Edit">Recursive Edit</a>.
+
+   </p><p><var>cs</var> states the coding system used for the file you are editing. 
+A dash indicates the default state of affairs: no code conversion,
+except for end-of-line translation if the file contents call for that. 
+`<samp><span class="samp">=</span></samp>' means no conversion whatsoever.  Nontrivial code conversions
+are represented by various letters&#8212;for example, `<samp><span class="samp">1</span></samp>' refers to ISO
+Latin-1.  See <a href="#Coding-Systems">Coding Systems</a>, for more information.
+
+   </p><p>On a text-only terminal, <var>cs</var> includes two additional characters
+which describe the coding system for keyboard input and the coding
+system for terminal output.  They come right before the coding system
+used for the file you are editing.
+
+   </p><p>If you are using an input method, a string of the form
+`<samp><var>i</var><span class="samp">&gt;</span></samp>' is added to the beginning of <var>cs</var>; <var>i</var>
+identifies the input method.  (Some input methods show `<samp><span class="samp">+</span></samp>' or
+`<samp><span class="samp">@</span></samp>' instead of `<samp><span class="samp">&gt;</span></samp>'.)  See <a href="#Input-Methods">Input Methods</a>.
+
+   </p><p>When multibyte characters are not enabled, <var>cs</var> does not appear at
+all.  See <a href="#Enabling-Multibyte">Enabling Multibyte</a>.
+
+   </p><p><a name="index-end_002dof_002dline-conversion_002c-mode_002dline-indication-13"></a>  The colon after <var>cs</var> changes to another string in some cases. 
+Emacs uses newline characters to separate lines in the buffer.  Some
+files use different conventions for separating lines: either
+carriage-return linefeed (the MS-DOS convention) or just
+carriage-return (the Macintosh convention).  If the buffer's file uses
+carriage-return linefeed, the colon changes to either a backslash
+(`<samp><span class="samp">\</span></samp>') or `<samp><span class="samp">(DOS)</span></samp>', depending on the operating system.  If the
+file uses just carriage-return, the colon indicator changes to either
+a forward slash (`<samp><span class="samp">/</span></samp>') or `<samp><span class="samp">(Mac)</span></samp>'.  On some systems, Emacs
+displays `<samp><span class="samp">(Unix)</span></samp>' instead of the colon for files that use newline
+as the line separator.
+
+   </p><p>See <a href="#Optional-Mode-Line">Optional Mode Line</a>, to add other handy information to the
+mode line, such as the size of the buffer, the current column number
+of point, and whether new mail for you has arrived.
+
+   </p><p>The mode line is mouse-sensitive; when you move the mouse across
+various parts of it, Emacs displays help text to say what a click in
+that place will do.  See <a href="#Mode-Line-Mouse">Mode Line Mouse</a>.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Menu-Bar"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Mode-Line">Mode Line</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Screen">Screen</a>
+
+</div>
+
+<h3 class="section">1.4 The Menu Bar</h3>
+
+<p><a name="index-menu-bar-14"></a>
+  Each Emacs frame normally has a <dfn>menu bar</dfn> at the top which you
+can use to perform common operations.  There's no need to list them
+here, as you can more easily see them yourself.
+
+   </p><p><a name="index-M_002d_0060-15"></a><a name="index-F10-16"></a><a name="index-tmm_002dmenubar-17"></a><a name="index-menu_002dbar_002dopen-18"></a>  On a graphical display, you can use the mouse to choose a command
+from the menu bar.  A right-arrow at the end of the menu item means it
+leads to a subsidiary menu; `<samp><span class="samp">...</span></samp>' at the end means that the
+command invoked will read arguments (further input from you) before it
+actually does anything.
+
+   </p><p>You can also invoke the first menu bar item by pressing &lt;F10&gt; (to run
+the command <code>menu-bar-open</code>).  You can then navigate the menus with
+the arrow keys.  You select an item by pressing &lt;RET&gt; and cancel menu
+navigation with &lt;ESC&gt;.
+
+   </p><p>To view the full command name and documentation for a menu item, type
+<kbd>C-h k</kbd>, and then select the menu bar with the mouse in the usual
+way (see <a href="#Key-Help">Key Help</a>).
+
+   </p><p>On text-only terminals with no mouse, you can use the menu bar by
+typing <kbd>M-`</kbd> or &lt;F10&gt; (these run the command
+<code>tmm-menubar</code>).  This lets you select a menu item with the
+keyboard.  A provisional choice appears in the echo area.  You can use
+the up and down arrow keys to move through the menu to different
+items, and then you can type &lt;RET&gt; to select the item.
+
+   </p><p>Each menu item also has an assigned letter or digit which designates
+that item; it is usually the initial of some word in the item's name. 
+This letter or digit is separated from the item name by `<samp><span class="samp">=&gt;</span></samp>'.  You
+can type the item's letter or digit to select the item.
+
+   </p><p>Some of the commands in the menu bar have ordinary key bindings as
+well; one such binding is shown in parentheses after the item itself.
+
+<!-- This is part of the Emacs manual. -->
+<!-- Copyright (C) 1985, 1986, 1987, 1993, 1994, 1995, 1997, 2001, 2002, -->
+<!-- 2003, 2004, 2005, 2006, 2007  Free Software Foundation, Inc. -->
+<!-- See file emacs.texi for copying conditions. -->
+</p><div class="node">
+<p></p><hr>
+<a name="User-Input"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Keys">Keys</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Screen">Screen</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">2 Kinds of User Input</h2>
+
+<p><a name="index-input-with-the-keyboard-19"></a><a name="index-keyboard-input-20"></a><a name="index-character-set-_0028keyboard_0029-21"></a><a name="index-g_t_0040acronym_007bASCII_007d-22"></a><a name="index-C_002d-23"></a><a name="index-Control-24"></a><a name="index-control-characters-25"></a>
+  GNU Emacs is designed for use with keyboard commands because that is
+the most efficient way to edit.  You can do editing with the mouse, as
+in other editors, and you can give commands with the menu bar and tool
+bar, and scroll with the scroll bar.  But if you keep on editing that
+way, you won't get the benefits of Emacs.  Therefore, this manual
+documents primarily how to edit with the keyboard.  You can force
+yourself to practice using the keyboard by using the shell command
+`<samp><span class="samp">emacs -nw</span></samp>' to start Emacs, so that the mouse won't work.
+
+   </p><p>Emacs uses an extension of the <acronym>ASCII</acronym> character set for
+keyboard input; it also accepts non-character input events including
+function keys and mouse button actions.
+
+   </p><p><acronym>ASCII</acronym> consists of 128 character codes.  Some of these codes are
+assigned graphic symbols such as `<samp><span class="samp">a</span></samp>' and `<samp><span class="samp">=</span></samp>'; the rest are
+control characters, such as <kbd>Control-a</kbd> (usually written <kbd>C-a</kbd>
+for short).  <kbd>C-a</kbd> gets its name from the fact that you type it by
+holding down the &lt;CTRL&gt; key while pressing <kbd>a</kbd>.
+
+   </p><p>Some <acronym>ASCII</acronym> control characters have special names, and most
+terminals have special keys you can type them with: for example,
+&lt;RET&gt;, &lt;TAB&gt;, &lt;DEL&gt; and &lt;ESC&gt;.  The space character is
+usually known as &lt;SPC&gt;, even though strictly speaking it is a
+graphic character that is blank.
+
+   </p><p>Emacs extends the <acronym>ASCII</acronym> character set with thousands more printing
+characters (see <a href="#International">International</a>), additional control characters, and a
+few more modifiers that can be combined with any character.
+
+   </p><p>On <acronym>ASCII</acronym> terminals, there are only 32 possible control characters. 
+These are the control variants of letters and `<samp><span class="samp">@[]\^_</span></samp>'.  In
+addition, the shift key is meaningless with control characters:
+<kbd>C-a</kbd> and <kbd>C-A</kbd> are the same character, and Emacs cannot
+distinguish them.
+
+   </p><p>The Emacs character set has room for control variants of all
+printing characters, and distinguishes <kbd>C-A</kbd> from <kbd>C-a</kbd>. 
+Graphical terminals make it possible to enter all these characters. 
+For example, <kbd>C--</kbd> (that's Control-Minus) and <kbd>C-5</kbd> are
+meaningful Emacs commands on a graphical terminal.
+
+   </p><p>Another Emacs character-set extension is additional modifier bits. 
+Only one modifier bit is commonly used; it is called Meta.  Every
+character has a Meta variant; examples include <kbd>Meta-a</kbd> (normally
+written <kbd>M-a</kbd>, for short), <kbd>M-A</kbd> (different from <kbd>M-a</kbd>,
+but they are normally equivalent in Emacs), <kbd>M-&lt;RET&gt;</kbd>, and
+<kbd>M-C-a</kbd>.  That last means <kbd>a</kbd> with both the &lt;CTRL&gt; and
+&lt;META&gt; modifiers.  We usually write it as <kbd>C-M-a</kbd> rather than
+<kbd>M-C-a</kbd>, for reasons of tradition.
+
+   </p><p><a name="index-Meta-26"></a><a name="index-M_002d-27"></a><a name="index-g_t_0040key_007bESC_007d-replacing-_0040key_007bMETA_007d-key-28"></a>  Some terminals have a &lt;META&gt; key, and allow you to type Meta
+characters by holding this key down.  Thus, you can type <kbd>Meta-a</kbd>
+by holding down &lt;META&gt; and pressing <kbd>a</kbd>.  The &lt;META&gt; key
+works much like the &lt;SHIFT&gt; key.  In fact, this key is more often
+labeled &lt;ALT&gt; or &lt;EDIT&gt;, instead of &lt;META&gt;; on a Sun
+keyboard, it may have a diamond on it.
+
+   </p><p>If there is no &lt;META&gt; key, you can still type Meta characters
+using two-character sequences starting with &lt;ESC&gt;.  Thus, you can
+enter <kbd>M-a</kbd> by typing <kbd>&lt;ESC&gt; a</kbd>.  You can enter
+<kbd>C-M-a</kbd> by typing <kbd>&lt;ESC&gt; C-a</kbd>.  Unlike &lt;META&gt;, which
+modifies other characters, &lt;ESC&gt; is a separate character.  You
+don't hold down &lt;ESC&gt; while typing the next character; instead,
+you press it and release it, then you enter the next character. 
+&lt;ESC&gt; is allowed on terminals with &lt;META&gt; keys, too, in case
+you have formed a habit of using it.
+
+   </p><p>Emacs defines several other modifier keys that can be applied to any
+input character.  These are called &lt;SUPER&gt;, &lt;HYPER&gt; and
+&lt;ALT&gt;.  We write `<samp><span class="samp">s-</span></samp>', `<samp><span class="samp">H-</span></samp>' and `<samp><span class="samp">A-</span></samp>' to say that a
+character uses these modifiers.  Thus, <kbd>s-H-C-x</kbd> is short for
+<kbd>Super-Hyper-Control-x</kbd>.  Not all graphical terminals actually
+provide keys for these modifier flags&#8212;in fact, many terminals have a
+key labeled &lt;ALT&gt; which is really a &lt;META&gt; key.  The standard
+key bindings of Emacs do not include any characters with these
+modifiers.  But you can assign them meanings of your own by
+customizing Emacs.
+
+   </p><p>If your keyboard lacks one of these modifier keys, you can enter it
+using <kbd>C-x @</kbd>: <kbd>C-x @ h</kbd> adds the &#8220;hyper&#8221; flag to the next
+character, <kbd>C-x @ s</kbd> adds the &#8220;super&#8221; flag, and <kbd>C-x @ a</kbd>
+adds the &#8220;alt&#8221; flag.  For instance, <kbd>C-x @ h C-a</kbd> is a way to
+enter <kbd>Hyper-Control-a</kbd>.  (Unfortunately there is no way to add
+two modifiers by using <kbd>C-x @</kbd> twice for the same character,
+because the first one goes to work on the <kbd>C-x</kbd>.)
+
+   </p><p>Keyboard input includes keyboard keys that are not characters at
+all, such as function keys and arrow keys.  Mouse buttons are also not
+characters.  However, you can modify these events with the modifier
+keys &lt;CTRL&gt;, &lt;META&gt;, &lt;SUPER&gt;, &lt;HYPER&gt; and &lt;ALT&gt;,
+just like keyboard characters.
+
+   </p><p><a name="index-input-event-29"></a>  Input characters and non-character inputs are collectively called
+<dfn>input events</dfn>.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Input-Events">Input Events</a>, for the full Lisp-level details.  If you are not
+doing Lisp programming, but simply want to redefine the meaning of
+some characters or non-character events, see <a href="#Customization">Customization</a>.
+
+   </p><p><acronym>ASCII</acronym> terminals cannot really send anything to the computer except
+<acronym>ASCII</acronym> characters.  These terminals use a sequence of characters to
+represent each function key.  But that is invisible to the Emacs user,
+because the keyboard input routines catch these special sequences
+and convert them to function key events before any other part of Emacs
+gets to see them.
+
+   </p><p><a name="index-keys-stolen-by-window-manager-30"></a><a name="index-window-manager_002c-keys-stolen-by-31"></a>  On graphical displays, the window manager is likely to block the
+character <kbd>Meta-&lt;TAB&gt;</kbd> before Emacs can see it.  It may also
+block <kbd>Meta-&lt;SPC&gt;</kbd>, <kbd>C-M-d</kbd> and <kbd>C-M-l</kbd>.  If you have
+these problems, we recommend that you customize your window manager to
+turn off those commands, or put them on key combinations that Emacs
+does not use.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Keys"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Commands">Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#User-Input">User Input</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">3 Keys</h2>
+
+<p><a name="index-key-sequence-32"></a><a name="index-key-33"></a>  A <dfn>key sequence</dfn> (<dfn>key</dfn>, for short) is a sequence of input
+events that is meaningful as a unit&#8212;a &#8220;single command.&#8221;  Some
+Emacs command sequences are invoked by just one character or one
+event; for example, just <kbd>C-f</kbd> moves forward one character in the
+buffer.  But Emacs also has commands that take two or more events to
+invoke.
+
+   </p><p><a name="index-complete-key-34"></a><a name="index-prefix-key-35"></a>  If a sequence of events is enough to invoke a command, it is a
+<dfn>complete key</dfn>.  Examples of complete keys include <kbd>C-a</kbd>,
+<kbd>X</kbd>, &lt;RET&gt;, &lt;NEXT&gt; (a function key), &lt;DOWN&gt; (an arrow
+key), <kbd>C-x C-f</kbd>, and <kbd>C-x 4 C-f</kbd>.  If it isn't long enough to be
+complete, we call it a <dfn>prefix key</dfn>.  The above examples show that
+<kbd>C-x</kbd> and <kbd>C-x 4</kbd> are prefix keys.  Every key sequence is either
+a complete key or a prefix key.
+
+   </p><p>Most single characters constitute complete keys in the standard Emacs
+command bindings.  A few of them are prefix keys.  A prefix key combines
+with the following input event to make a longer key sequence, which may
+itself be complete or a prefix.  For example, <kbd>C-x</kbd> is a prefix key,
+so <kbd>C-x</kbd> and the next input event combine to make a two-event
+key sequence.  Most of these key sequences are complete keys, including
+<kbd>C-x C-f</kbd> and <kbd>C-x b</kbd>.  A few, such as <kbd>C-x 4</kbd> and <kbd>C-x
+r</kbd>, are themselves prefix keys that lead to three-event key
+sequences.  There's no limit to the length of a key sequence, but in
+practice people rarely use sequences longer than four events.
+
+   </p><p>You can't add input events onto a complete key.  For example, the
+two-event sequence <kbd>C-f C-k</kbd> is not a key, because the <kbd>C-f</kbd>
+is a complete key in itself.  It's impossible to give <kbd>C-f C-k</kbd> an
+independent meaning as a command.  <kbd>C-f C-k</kbd> is two key sequences,
+not one.
+
+   </p><p>All told, the prefix keys in Emacs are <kbd>C-c</kbd>, <kbd>C-h</kbd>,
+<kbd>C-x</kbd>, <kbd>C-x &lt;RET&gt;</kbd>, <kbd>C-x @</kbd>, <kbd>C-x a</kbd>, <kbd>C-x
+n</kbd>, <kbd>C-x&nbsp;r</kbd><!-- /@w -->, <kbd>C-x v</kbd>, <kbd>C-x 4</kbd>, <kbd>C-x 5</kbd>, <kbd>C-x
+6</kbd>, &lt;ESC&gt;, <kbd>M-g</kbd>, and <kbd>M-o</kbd>.  (&lt;F1&gt; and &lt;F2&gt; are
+aliases for <kbd>C-h</kbd> and <kbd>C-x 6</kbd>.)  This list is not cast in stone;
+it describes the standard key bindings.  If you customize Emacs, you can make
+new prefix keys, or eliminate some of the standard ones (not
+recommended for most users).  See <a href="#Key-Bindings">Key Bindings</a>.
+
+   </p><p>If you make or eliminate prefix keys, that changes the set of
+possible key sequences.  For example, if you redefine <kbd>C-f</kbd> as a
+prefix, <kbd>C-f C-k</kbd> automatically becomes a key (complete, unless
+you define that too as a prefix).  Conversely, if you remove the
+prefix definition of <kbd>C-x 4</kbd>, then <kbd>C-x 4 f</kbd> and <kbd>C-x 4
+</kbd><var>anything</var> are no longer keys.
+
+   </p><p>Typing the help character (<kbd>C-h</kbd> or &lt;F1&gt;) after a prefix key
+displays a list of the commands starting with that prefix.  There are
+a few prefix keys after which <kbd>C-h</kbd> does not work&#8212;for historical
+reasons, they define other meanings for <kbd>C-h</kbd> which are painful to
+change.  &lt;F1&gt; works after all prefix keys.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Text-Characters">Text Characters</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Keys">Keys</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">4 Keys and Commands</h2>
+
+<p><a name="index-binding-36"></a><a name="index-command-37"></a><a name="index-function-definition-38"></a>  This manual is full of passages that tell you what particular keys
+do.  But Emacs does not assign meanings to keys directly.  Instead,
+Emacs assigns meanings to named <dfn>commands</dfn>, and then gives keys
+their meanings by <dfn>binding</dfn> them to commands.
+
+   </p><p>Every command has a name chosen by a programmer.  The name is
+usually made of a few English words separated by dashes; for example,
+<code>next-line</code> or <code>forward-word</code>.  A command also has a
+<dfn>function definition</dfn> which is a Lisp program; this is how the
+command does its work.  In Emacs Lisp, a command is a Lisp function with
+special options to read arguments and for interactive use.  For more
+information on commands and functions, see <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#What-Is-a-Function">What Is a Function</a>.  (The
+definition here is simplified slightly.)
+
+   </p><p>The bindings between keys and commands are recorded in tables called
+<dfn>keymaps</dfn>.  See <a href="#Keymaps">Keymaps</a>.
+
+   </p><p>When we say that &#8220;<kbd>C-n</kbd> moves down vertically one line&#8221; we are
+glossing over a subtle distinction that is irrelevant in ordinary use,
+but vital for Emacs customization.  The command <code>next-line</code> does
+a vertical move downward.  <kbd>C-n</kbd> has this effect <em>because</em> it
+is bound to <code>next-line</code>.  If you rebind <kbd>C-n</kbd> to the command
+<code>forward-word</code>, <kbd>C-n</kbd> will move forward one word instead. 
+Rebinding keys is an important method of customization.
+
+   </p><p>In the rest of this manual, we usually ignore this distinction to
+keep things simple.  We will often speak of keys like <kbd>C-n</kbd> as
+commands, even though strictly speaking the key is bound to a command. 
+Usually we state the name of the command which really does the work in
+parentheses after mentioning the key that runs it.  For example, we
+will say that &#8220;The command <kbd>C-n</kbd> (<code>next-line</code>) moves point
+vertically down,&#8221; meaning that the command <code>next-line</code> moves
+vertically down, and the key <kbd>C-n</kbd> is normally bound to it.
+
+   </p><p>Since we are discussing customization, we should tell you about
+<dfn>variables</dfn>.  Often the description of a command will say, &#8220;To
+change this, set the variable <code>mumble-foo</code>.&#8221;  A variable is a
+name used to store a value.  Most of the variables documented in this
+manual are meant for customization: some command or other part of
+Emacs examines the variable and behaves differently according to the
+value that you set.  You can ignore the information about variables
+until you are interested in customizing them.  Then read the basic
+information on variables (see <a href="#Variables">Variables</a>) and the information about
+specific variables will make sense.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Text-Characters"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Entering-Emacs">Entering Emacs</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Commands">Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">5 Character Set for Text</h2>
+
+<p><a name="index-characters-_0028in-text_0029-39"></a>
+  Text in Emacs buffers is a sequence of characters.  In the simplest
+case, these are <acronym>ASCII</acronym> characters, each stored in one 8-bit
+byte.  Both <acronym>ASCII</acronym> control characters (octal codes 000
+through 037, and 0177) and <acronym>ASCII</acronym> printing characters (codes
+040 through 0176) are allowed.  The other modifier flags used in
+keyboard input, such as Meta, are not allowed in buffers.
+
+   </p><p>Non-<acronym>ASCII</acronym> printing characters can also appear in buffers,
+when multibyte characters are enabled.  They have character codes
+starting at 256, octal 0400, and each one is represented as a sequence
+of two or more bytes.  See <a href="#International">International</a>.  Single-byte characters
+with codes 128 through 255 can also appear in multibyte buffers. 
+However, non-<acronym>ASCII</acronym> control characters cannot appear in a
+buffer.
+
+   </p><p>Some <acronym>ASCII</acronym> control characters serve special purposes in text, and have
+special names.  For example, the newline character (octal code 012) is
+used in the buffer to end a line, and the tab character (octal code 011)
+is used for indenting to the next tab stop column (normally every 8
+columns).  See <a href="#Text-Display">Text Display</a>.
+
+   </p><p>If you disable multibyte characters, then you can use only one
+alphabet of non-<acronym>ASCII</acronym> characters, which all fit in one byte. 
+They use octal codes 0200 through 0377.  See <a href="#Unibyte-Mode">Unibyte Mode</a>.
+
+<!-- This is part of the Emacs manual. -->
+<!-- Copyright (C) 1985, 1986, 1987, 1993, 1994, 1995, 2001, 2002, 2003, -->
+<!-- 2004, 2005, 2006, 2007  Free Software Foundation, Inc. -->
+<!-- See file emacs.texi for copying conditions. -->
+</p><div class="node">
+<p></p><hr>
+<a name="Entering-Emacs"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Exiting">Exiting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Text-Characters">Text Characters</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">6 Entering and Exiting Emacs</h2>
+
+<p><a name="index-entering-Emacs-40"></a><a name="index-starting-Emacs-41"></a>
+  The usual way to invoke Emacs is with the shell command
+<samp><span class="command">emacs</span></samp>.  Emacs clears the screen, then displays an initial
+help message and copyright notice.  Some operating systems discard
+your type-ahead when Emacs starts up; they give Emacs no way to
+prevent this.  On those systems, wait for Emacs to clear the screen
+before you start typing.
+
+   </p><p>From a shell window under the X Window System, run Emacs in the
+background with <samp><span class="command">emacs&amp;</span></samp>.  This way, Emacs won't tie up the
+shell window, so you can use it to run other shell commands while
+Emacs is running.  You can type Emacs commands as soon as you direct
+your keyboard input to an Emacs frame.
+
+   </p><p><a name="index-initial_002dmajor_002dmode-42"></a>  When Emacs starts up, it creates a buffer named `<samp><span class="samp">*scratch*</span></samp>'. 
+That's the buffer you start out in.  The `<samp><span class="samp">*scratch*</span></samp>' buffer uses
+Lisp Interaction mode; you can use it to type Lisp expressions and
+evaluate them.  You can also ignore that capability and just write notes
+there.  You can specify a different major mode for this buffer by
+setting the variable <code>initial-major-mode</code> in your init file. 
+See <a href="#Init-File">Init File</a>.
+
+   </p><p>It is possible to specify files to be visited, Lisp files to be
+loaded, and functions to be called through Emacs command-line
+arguments.  See <a href="#Emacs-Invocation">Emacs Invocation</a>.  The feature exists mainly for
+compatibility with other editors, and for scripts.
+
+   </p><p>Many editors are designed to edit one file.  When done with that
+file, you exit the editor.  The next time you want to edit a file, you
+must start the editor again.  Working this way, it is convenient to
+use a command-line argument to say which file to edit.
+
+   </p><p>However, killing Emacs after editing one each and starting it afresh
+for the next file is both unnecessary and harmful, since it denies you
+the full power of Emacs.  Emacs can visit more than one file in a
+single editing session, and that is the right way to use it.  Exiting
+the Emacs session loses valuable accumulated context, such as the kill
+ring, registers, undo history, and mark ring.  These features are
+useful for operating on multiple files, or even continuing to edit one
+file.  If you kill Emacs after each file, you don't take advantage of
+them.
+
+   </p><p>The recommended way to use GNU Emacs is to start it only once, just
+after you log in, and do all your editing in the same Emacs session. 
+Each time you edit a file, you visit it with the existing Emacs, which
+eventually has many files in it ready for editing.  Usually you do not
+kill Emacs until you are about to log out.  See <a href="#Files">Files</a>, for more
+information on visiting more than one file.
+
+   </p><p>To edit a file from another program while Emacs is running, you can
+use the <samp><span class="command">emacsclient</span></samp> helper program to open a file in the
+already running Emacs.  See <a href="#Emacs-Server">Emacs Server</a>.
+
+</p><div class="node">
+<p></p><hr>
